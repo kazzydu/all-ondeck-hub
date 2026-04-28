@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Courses | All ONDECK HUB</title>
+  <meta name="description" content="Browse expert-designed tennis courses for all levels — beginner to elite. Built for African players. Learn at your pace." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      padding: .55rem 1.4rem;
+      border-radius: 50px;
+      border: 2px solid var(--gray-200);
+      background: var(--white);
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .course-preview-list { margin: 1rem 0; }
+    .course-preview-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: .82rem;
+      color: var(--gray-600);
+    }
+    .course-preview-item:last-child { border-bottom: none; }
+    .course-preview-item span { color: var(--gold); }
+    .instructor-row {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .75rem;
+    }
+    .instructor-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .instructor-name { font-size: .82rem; font-weight: 700; color: var(--navy); }
+    .instructor-title { font-size: .72rem; color: var(--gray-400); }
+    .course-includes {
+      background: var(--gray-100);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .course-includes h4 { font-size: .88rem; margin-bottom: .75rem; }
+    .include-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .85rem;
+      color: var(--gray-600);
+      margin-bottom: .4rem;
+    }
+    .include-item span { color: var(--gold); }
+    @media (max-width: 768px) {
+      .courses-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1024px) {
+      .courses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🎾</div>
+        <div>
+          <div class="nav-logo-text"><span>All ONDECK</span> HUB</div>
+          <div class="nav-logo-sub">Tennis Hub</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="courses.html" class="btn btn-outline-white btn-sm">Browse Courses</a>
+        <a href="community.html" class="btn btn-gold btn-sm">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav container">
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="talent.html">Talent Showcase</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="community.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="community.html" class="btn btn-gold">Join Now →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Courses</span></div>
+    <h1>Online Tennis <span style="color:var(--gold)">Courses</span></h1>
+    <p>Expert-designed programmes for every level. Learn at your own pace from coaches who understand the African tennis journey.</p>
+  </div>
+</section>
+
+<!-- COURSES SECTION -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <span style="font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--navy)">Filter:</span>
+      <button class="filter-btn active" onclick="filterCourses('all',this)">All Courses</button>
+      <button class="filter-btn" onclick="filterCourses('beginner',this)">Beginner</button>
+      <button class="filter-btn" onclick="filterCourses('intermediate',this)">Intermediate</button>
+      <button class="filter-btn" onclick="filterCourses('advanced',this)">Advanced</button>
+      <button class="filter-btn" onclick="filterCourses('free',this)">Free</button>
+    </div>
+
+    <div class="courses-grid" id="courses-grid">
+
+      <!-- Course 1 -->
+      <div class="card course-card reveal" data-level="beginner">
+        <div class="course-thumb">
+          🏃
+          <span class="badge badge-green course-level">Beginner</span>
+          <span class="course-duration">⏱ 6 Weeks</span>
+        </div>
+        <div class="card-body">
+          <div class="instructor-row">
+            <div class="instructor-avatar">👨</div>
+            <div>
+              <div class="instructor-name">Coach Kazeem Rasaki</div>
+              <div class="instructor-title">ITF L1 &amp; PTR Certified</div>
+            </div>
+          </div>
+          <h4>Tennis Fundamentals for Beginners</h4>
+          <div class="course-meta">
+            <div class="course-rating">★★★★★ <span style="color:var(--gray-400);font-weight:400">4.9 (87)</span></div>
+            <div class="course-students">420 students</div>
+          </div>
+          <p style="font-size:.88rem;margin:.5rem 0">Master grip, footwork, groundstrokes, and court positioning from absolute zero. Perfect first step for any new player.</p>
+          <div class="course-preview-list">
+            <div class="course-preview-item"><span>▶</span> Module 1: Equipment &amp; Grip Basics</div>
+            <div class="course-preview-item"><span>▶</span> Module 2: Forehand Foundation</div>
+            <div class="course-preview-item"><span>▶</span> Module 3: Backhand Technique</div>
+            <div class="course-preview-item"><span>▶</span> Module 4: Serve Introduction</div>
+            <div class="course-preview-item" style="color:var(--gray-400)">+ 8 more modules...</div>
+          </div>
+          <div class="course-includes">
+            <h4>What's Included</h4>
+            <div class="include-item"><span>🎬</span> 24 HD Video Lessons</div>
+            <div class="include-item"><span>📄</span> Drills PDF Workbook</div>
+            <div class="include-item"><span>🏆</span> Completion Certificate</div>
+            <div class="include-item"><span>💬</span> Community Q&amp;A Access</div>
+          </div>
+          <div class="course-price">
+            <div class="price-amount"><span class="currency">₦</span>15,000</div>
+            <button class="btn btn-gold btn-sm" data-action="enroll" data-course="Tennis Fundamentals">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="card course-card reveal reveal-delay-1" data-level="beginner free">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1a3a6e,#0D1B3E)">
+          ⚡
+          <span class="badge badge-green course-level">Beginner</span>
+          <span class="course-duration">⏱ 3 Weeks</span>
+        </div>
+        <div class="card-body">
+          <div class="instructor-row">
+            <div class="instructor-avatar">👩</div>
+            <div>
+              <div class="instructor-name">Coach Fatima Abubakar</div>
+              <div class="instructor-title">Nigeria Tennis Federation Coach</div>
+            </div>
+          </div>
+          <h4>Court Movement &amp; Footwork Mastery</h4>
+          <div class="course-meta">
+            <div class="course-rating">★★★★★ <span style="color:var(--gray-400);font-weight:400">4.8 (54)</span></div>
+            <div class="course-students">318 students</div>
+          </div>
+          <p style="font-size:.88rem;margin:.5rem 0">Quick feet win matches. Learn the split step, recovery runs, and court geometry that separate good players from great ones.</p>
+          <div class="course-preview-list">
+            <div class="course-preview-item"><span>▶</span> Module 1: The Split Step</div>
+            <div class="course-preview-item"><span>▶</span> Module 2: Recovery Patterns</div>
+            <div class="course-preview-item"><span>▶</span> Module 3: Agility Ladder Drills</div>
+            <div class="course-preview-item" style="color:var(--gray-400)">+ 5 more modules...</div>
+          </div>
+          <div class="course-includes">
+            <h4>What's Included</h4>
+            <div class="include-item"><span>🎬</span> 12 HD Video Lessons</div>
+            <div class="include-item"><span>📄</span> Footwork Drill Cards</div>
+            <div class="include-item"><span>🏆</span> Completion Certificate</div>
+          </div>
+          <div class="course-price">
+            <div class="price-free">FREE</div>
+            <button class="btn btn-gold btn-sm" data-action="enroll" data-course="Footwork Mastery">Enroll Free</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="card course-card reveal reveal-delay-2" data-level="intermediate">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#162952,#0D1B3E)">
+          🎯
+          <span class="badge badge-gold course-level">Intermediate</span>
+          <span class="course-duration">⏱ 8 Weeks</span>
+        </div>
+        <div class="card-body">
+          <div class="instructor-row">
+            <div class="instructor-avatar">👨</div>
+            <div>
+              <div class="instructor-name">Coach Kazeem Rasaki</div>
+              <div class="instructor-title">ITF L1 &amp; PTR Certified</div>
+            </div>
+          </div>
+          <h4>Tactical Tennis &amp; Match Play Strategy</h4>
+          <div class="course-meta">
+            <div class="course-rating">★★★★★ <span style="color:var(--gray-400);font-weight:400">4.8 (63)</span></div>
+            <div class="course-students">310 students</div>
+          </div>
+          <p style="font-size:.88rem;margin:.5rem 0">Build your game strategy, learn to read opponents' patterns, and develop winning game styles for different court surfaces.</p>
+          <div class="course-preview-list">
+            <div class="course-preview-item"><span>▶</span> Module 1: Understanding Game Styles</div>
+            <div class="course-preview-item"><span>▶</span> Module 2: The Baseline Warrior System</div>
+            <div class="course-preview-item"><span>▶</span> Module 3: Serve &amp; Return Tactics</div>
+            <div class="course-preview-item"><span>▶</span> Module 4: Net Approach Patterns</div>
+            <div class="course-preview-item" style="color:var(--gray-400)">+ 10 more modules...</div>
+          </div>
+          <div class="course-includes">
+            <h4>What's Included</h4>
+            <div class="include-item"><span>🎬</span> 32 HD Video Lessons</div>
+            <div class="include-item"><span>📊</span> Tactic Cheat Sheets</div>
+            <div class="include-item"><span>🏆</span> Certificate + Badge</div>
+            <div class="include-item"><span>🔴</span> 1 Live Q&amp;A Session</div>
+          </div>
+          <div class="course-price">
+            <div class="price-amount"><span class="currency">₦</span>25,000</div>
+            <button class="btn btn-gold btn-sm" data-action="enroll" data-course="Tactical Tennis">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="card course-card reveal" data-level="intermediate">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1a4a2e,#0D1B3E)">
+          🎾
+          <span class="badge badge-gold course-level">Intermediate</span>
+          <span class="course-duration">⏱ 6 Weeks</span>
+        </div>
+        <div class="card-body">
+          <div class="instructor-row">
+            <div class="instructor-avatar">👩</div>
+            <div>
+              <div class="instructor-name">Coach Adaeze Obi</div>
+              <div class="instructor-title">Former Nigeria No.1 Women</div>
+            </div>
+          </div>
+          <h4>Serve Power &amp; Placement Program</h4>
+          <div class="course-meta">
+            <div class="course-rating">★★★★★ <span style="color:var(--gray-400);font-weight:400">4.9 (41)</span></div>
+            <div class="course-students">224 students</div>
+          </div>
+          <p style="font-size:.88rem;margin:.5rem 0">Transform your serve from a liability to your greatest weapon. Learn ball toss, leg drive, and spin variations.</p>
+          <div class="course-preview-list">
+            <div class="course-preview-item"><span>▶</span> Module 1: Serve Biomechanics</div>
+            <div class="course-preview-item"><span>▶</span> Module 2: Flat Serve Maximizing Power</div>
+            <div class="course-preview-item"><span>▶</span> Module 3: Kick Serve Technique</div>
+            <div class="course-preview-item" style="color:var(--gray-400)">+ 7 more modules...</div>
+          </div>
+          <div class="course-includes">
+            <h4>What's Included</h4>
+            <div class="include-item"><span>🎬</span> 28 HD Video Lessons</div>
+            <div class="include-item"><span>📐</span> Biomechanics Analysis</div>
+            <div class="include-item"><span>🏆</span> Completion Certificate</div>
+          </div>
+          <div class="course-price">
+            <div class="price-amount"><span class="currency">₦</span>22,000</div>
+            <button class="btn btn-gold btn-sm" data-action="enroll" data-course="Serve Power">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="card course-card reveal reveal-delay-1" data-level="advanced">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#3a1a6e,#0D1B3E)">
+          🧠
+          <span class="badge badge-purple course-level">Advanced</span>
+          <span class="course-duration">⏱ 10 Weeks</span>
+        </div>
+        <div class="card-body">
+          <div class="instructor-row">
+            <div class="instructor-avatar">🧑</div>
+            <div>
+              <div class="instructor-name">Dr. Kunle Adeola</div>
+              <div class="instructor-title">Sports Psychologist · Lagos</div>
+            </div>
+          </div>
+          <h4>Elite Mental Performance &amp; Champion Mindset</h4>
+          <div class="course-meta">
+            <div class="course-rating">★★★★★ <span style="color:var(--gray-400);font-weight:400">5.0 (38)</span></div>
+            <div class="course-students">185 students</div>
+          </div>
+          <p style="font-size:.88rem;margin:.5rem 0">Master pressure management, pre-match routines, and the psychological edge that separates champions from nearly-great players.</p>
+          <div class="course-preview-list">
+            <div class="course-preview-item"><span>▶</span> Module 1: The Champion Identity</div>
+            <div class="course-preview-item"><span>▶</span> Module 2: Managing Big-Point Pressure</div>
+            <div class="course-preview-item"><span>▶</span> Module 3: Visualization Techniques</div>
+            <div class="course-preview-item"><span>▶</span> Module 4: Post-Match Recovery Protocol</div>
+            <div class="course-preview-item" style="color:var(--gray-400)">+ 12 more modules...</div>
+          </div>
+          <div class="course-includes">
+            <h4>What's Included</h4>
+            <div class="include-item"><span>🎬</span> 38 HD Video Lessons</div>
+            <div class="include-item"><span>📓</span> Mental Performance Journal</div>
+            <div class="include-item"><span>🔴</span> 2 Live Group Sessions</div>
+            <div class="include-item"><span>🏆</span> Elite Certificate + Badge</div>
+          </div>
+          <div class="course-price">
+            <div class="price-amount"><span class="currency">₦</span>35,000</div>
+            <button class="btn btn-gold btn-sm" data-action="enroll" data-course="Mental Performance">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 6 -->
+      <div class="card course-card reveal reveal-delay-2" data-level="advanced">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1a3a6e,#3a1a6e)">
+          💪
+          <span class="badge badge-purple course-level">Advanced</span>
+          <span class="course-duration">⏱ 12 Weeks</span>
+        </div>
+        <div class="card-body">
+          <div class="instructor-row">
+            <div class="instructor-avatar">👨</div>
+            <div>
+              <div class="instructor-name">Coach Tolu Bello</div>
+              <div class="instructor-title">S&amp;C Specialist · Tennis Focus</div>
+            </div>
+          </div>
+          <h4>Tennis Fitness: Strength, Speed &amp; Endurance</h4>
+          <div class="course-meta">
+            <div class="course-rating">★★★★★ <span style="color:var(--gray-400);font-weight:400">4.7 (29)</span></div>
+            <div class="course-students">142 students</div>
+          </div>
+          <p style="font-size:.88rem;margin:.5rem 0">Build a tennis-specific body. Shoulder stability, lateral power, match endurance — a complete athletic programme for serious players.</p>
+          <div class="course-preview-list">
+            <div class="course-preview-item"><span>▶</span> Module 1: Movement Screening</div>
+            <div class="course-preview-item"><span>▶</span> Module 2: Lower Body Power</div>
+            <div class="course-preview-item"><span>▶</span> Module 3: Rotational Core Training</div>
+            <div class="course-preview-item" style="color:var(--gray-400)">+ 9 more modules...</div>
+          </div>
+          <div class="course-includes">
+            <h4>What's Included</h4>
+            <div class="include-item"><span>🎬</span> 42 HD Video Lessons</div>
+            <div class="include-item"><span>📋</span> 12-Week Workout Plan</div>
+            <div class="include-item"><span>🥗</span> Nutrition Guide</div>
+            <div class="include-item"><span>🏆</span> Certificate + Badge</div>
+          </div>
+          <div class="course-price">
+            <div class="price-amount"><span class="currency">₦</span>30,000</div>
+            <button class="btn btn-gold btn-sm" data-action="enroll" data-course="Tennis Fitness">Enroll Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /courses-grid -->
+
+    <!-- Load More -->
+    <div style="text-align:center;margin-top:3rem">
+      <p style="color:var(--gray-400);margin-bottom:1rem">Showing 6 of 24 courses</p>
+      <button class="btn btn-navy" onclick="showToast('🎾','More courses loading soon — all 24 available for Pro members!')">Load More Courses</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label">Pro Members Save 40%</div>
+    <h2>Unlock <span style="color:var(--gold)">All 24 Courses</span> with One Membership</h2>
+    <p>Join the Pro plan and get unlimited access to every course, live Q&As, mentorship calls, and your player showcase profile.</p>
+    <div class="cta-btns">
+      <a href="community.html" class="btn btn-gold btn-lg">Join Pro — ₦9,500/mo</a>
+      <a href="coaching.html" class="btn btn-outline-white btn-lg">Book a Coaching Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex">
+          <div class="nav-logo-icon">🎾</div>
+          <div>
+            <div class="nav-logo-text"><span>All ONDECK</span> HUB</div>
+            <div class="nav-logo-sub">Tennis Hub</div>
+          </div>
+        </a>
+        <p>Developing the next generation of African tennis talent through world-class online education, coaching, and community.</p>
+        <div class="footer-social">
+          <div class="social-btn">📸</div><div class="social-btn">🐦</div>
+          <div class="social-btn">▶️</div><div class="social-btn">💬</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="courses.html">Online Courses</a></li>
+          <li><a href="talent.html">Talent Showcase</a></li>
+          <li><a href="coaching.html">Book Coaching</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.4);font-size:.85rem">📞 +234 (0) 800 EDGE TEN<br>📧 hello@allondeckhub.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 All ONDECK HUB. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterCourses(level, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.course-card').forEach(card => {
+    if (level === 'all' || card.dataset.level?.includes(level)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

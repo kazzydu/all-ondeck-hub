@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coaching | All ONDECK HUB</title>
+  <meta name="description" content="Book virtual coaching sessions, match analysis, and personalised training plans with expert African tennis coaches." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .coach-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .coach-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+    .coach-header {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      padding: 2.5rem 2rem 1.5rem;
+      text-align: center;
+    }
+    .coach-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem;
+      margin: 0 auto 1rem;
+      border: 4px solid rgba(201,168,76,.35);
+    }
+    .coach-name  { color: var(--white); font-size: 1.2rem; margin-bottom: .25rem; }
+    .coach-title { color: var(--gray-400); font-size: .82rem; }
+    .coach-body  { padding: 1.75rem; }
+    .coach-tags  { display: flex; flex-wrap: wrap; gap: .4rem; margin: .75rem 0 1.25rem; }
+    .coach-tag   {
+      padding: .3rem .75rem;
+      background: var(--gray-100);
+      border-radius: 50px;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .coach-stat-row { display: flex; justify-content: space-around; padding: 1rem 0; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); margin-bottom: 1.25rem; }
+    .coach-stat-val { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--navy); }
+    .coach-stat-key { font-size: .72rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: .06em; }
+
+    .pricing-strip {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--gray-100); border-radius: var(--radius); padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .pricing-strip-label { font-size: .88rem; color: var(--gray-600); }
+    .pricing-strip-price { font-family: var(--font-head); font-weight: 800; color: var(--navy); }
+
+    .booking-step {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.25rem 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .booking-step:last-child { border-bottom: none; }
+    .booking-step-num {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border-radius: 50%; background: var(--navy);
+      color: var(--gold); font-family: var(--font-head);
+      font-weight: 800; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .booking-step h4 { margin-bottom: .25rem; font-size: .95rem; }
+    .booking-step p { font-size: .88rem; }
+
+    .calendar-placeholder {
+      background: var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      text-align: center;
+      border: 2px dashed var(--gray-200);
+    }
+    .calendar-placeholder .icon { font-size: 4rem; margin-bottom: 1rem; }
+    .calendar-placeholder p { max-width: 400px; margin: 0 auto 1.5rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🎾</div>
+        <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li><li><a href="coaching.html">Coaching</a></li>
+        <li><a href="community.html">Community</a></li><li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="courses.html" class="btn btn-outline-white btn-sm">Browse Courses</a>
+        <a href="community.html" class="btn btn-gold btn-sm">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav container">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a>
+    <a href="talent.html">Talent Showcase</a><a href="coaching.html">Coaching</a>
+    <a href="community.html">Community</a><a href="about.html">About</a><a href="blog.html">Blog</a>
+    <a href="#book" class="btn btn-gold">Book Now →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Coaching</span></div>
+    <h1>Expert <span style="color:var(--gold)">Coaching</span> On Demand</h1>
+    <p>Virtual sessions, match analysis, and personalised training plans — designed for African players at every stage of development.</p>
+    <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#book" class="btn btn-gold btn-lg">📅 Book a Session</a>
+      <a href="#services" class="btn btn-outline-white btn-lg">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Coaching Services</div>
+      <h2 class="section-title reveal">Every Player Needs a <span>Different Edge</span></h2>
+      <p class="section-sub reveal">Whether you're a beginner looking for guidance or a competitive junior preparing for ITF events — we have a coaching service for you.</p>
+    </div>
+    <div class="grid-2" style="gap:2.5rem">
+
+      <div class="service-card reveal" style="text-align:left;padding:2.5rem">
+        <div class="service-icon" style="margin:0 0 1.25rem">🖥️</div>
+        <h3>Virtual 1-on-1 Coaching</h3>
+        <p style="margin:.75rem 0 1.25rem">Live video sessions with a certified coach. Show your strokes via video, receive real-time feedback, and get a post-session report with action points.</p>
+        <ul style="margin-bottom:1.5rem">
+          <li class="about-feature"><span class="about-feature-icon">✅</span> 45-minute live video session</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Technique breakdown &amp; drills</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Written session report</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Follow-up email support</li>
+        </ul>
+        <div class="pricing-strip">
+          <span class="pricing-strip-label">Per Session</span>
+          <span class="pricing-strip-price">₦18,000</span>
+        </div>
+        <a href="#book" class="btn btn-gold" style="width:100%;justify-content:center">Book Virtual Session</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1" style="text-align:left;padding:2.5rem">
+        <div class="service-icon" style="margin:0 0 1.25rem">🎬</div>
+        <h3>Match Video Analysis</h3>
+        <p style="margin:.75rem 0 1.25rem">Upload match footage and receive a detailed breakdown: tactical errors, shot selection, court positioning, physical movement, and a personalised improvement plan.</p>
+        <ul style="margin-bottom:1.5rem">
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Full match annotated review</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Strengths &amp; weakness report</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Video with timestamps &amp; notes</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> 3 priority areas to work on</li>
+        </ul>
+        <div class="pricing-strip">
+          <span class="pricing-strip-label">Per Match</span>
+          <span class="pricing-strip-price">₦25,000</span>
+        </div>
+        <a href="#book" class="btn btn-gold" style="width:100%;justify-content:center">Submit Match Footage</a>
+      </div>
+
+      <div class="service-card reveal" style="text-align:left;padding:2.5rem">
+        <div class="service-icon" style="margin:0 0 1.25rem">📋</div>
+        <h3>Personalised Training Plan</h3>
+        <p style="margin:.75rem 0 1.25rem">A custom 4–12 week training programme built around your current level, schedule, available facilities, and goals. Includes on-court drills and off-court conditioning.</p>
+        <ul style="margin-bottom:1.5rem">
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Initial assessment call (30 min)</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Weekly training structure</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> On-court drill library access</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Monthly plan review &amp; update</li>
+        </ul>
+        <div class="pricing-strip">
+          <span class="pricing-strip-label">4-Week Plan</span>
+          <span class="pricing-strip-price">₦35,000</span>
+        </div>
+        <a href="#book" class="btn btn-gold" style="width:100%;justify-content:center">Get My Training Plan</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1" style="text-align:left;padding:2.5rem">
+        <div class="service-icon" style="margin:0 0 1.25rem">🏟️</div>
+        <h3>In-Person Sessions (Lagos)</h3>
+        <p style="margin:.75rem 0 1.25rem">On-court sessions available at partner facilities in Lagos. Work directly with a certified coach on technique, drills, and match play. Limited slots per week.</p>
+        <ul style="margin-bottom:1.5rem">
+          <li class="about-feature"><span class="about-feature-icon">✅</span> 60-minute on-court session</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Ball machine available</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Video recording included</li>
+          <li class="about-feature"><span class="about-feature-icon">✅</span> Available: Tue, Thu, Sat</li>
+        </ul>
+        <div class="pricing-strip">
+          <span class="pricing-strip-label">Per Session</span>
+          <span class="pricing-strip-price">₦45,000</span>
+        </div>
+        <a href="#book" class="btn btn-gold" style="width:100%;justify-content:center">Book In-Person</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COACHES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Our Coaches</div>
+      <h2 class="section-title reveal">Trained by the <span>Best in Africa</span></h2>
+    </div>
+    <div class="grid-3">
+
+      <div class="coach-card reveal">
+        <div class="coach-header">
+          <div class="coach-avatar">👨</div>
+          <div class="coach-name">Coach Kazeem Rasaki</div>
+          <div class="coach-title">Head of Coaching · ITF L1 | PTR Certified</div>
+        </div>
+        <div class="coach-body">
+          <div class="coach-stat-row">
+            <div class="coach-stat"><div class="coach-stat-val">10+</div><div class="coach-stat-key">Years</div></div>
+            <div class="coach-stat"><div class="coach-stat-val">200+</div><div class="coach-stat-key">Students</div></div>
+            <div class="coach-stat"><div class="coach-stat-val">4.9★</div><div class="coach-stat-key">Rating</div></div>
+          </div>
+          <p style="font-size:.88rem;margin-bottom:.75rem">ITF Level 1 &amp; US PTR Certified Coach. Diploma in Sport Coaching &amp; Leadership. Specialises in player development, match tactics, and junior competitive preparation.</p>
+          <div class="coach-tags">
+            <span class="coach-tag">Tactics</span>
+            <span class="coach-tag">Junior Dev</span>
+            <span class="coach-tag">Match Play</span>
+            <span class="coach-tag">Serve</span>
+          </div>
+          <a href="#book" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">Book with Kazeem</a>
+        </div>
+      </div>
+
+      <div class="coach-card reveal reveal-delay-1">
+        <div class="coach-header">
+          <div class="coach-avatar">👩</div>
+          <div class="coach-name">Coach Fatima Abubakar</div>
+          <div class="coach-title">Women's Development Specialist</div>
+        </div>
+        <div class="coach-body">
+          <div class="coach-stat-row">
+            <div class="coach-stat"><div class="coach-stat-val">7+</div><div class="coach-stat-key">Years</div></div>
+            <div class="coach-stat"><div class="coach-stat-val">150+</div><div class="coach-stat-key">Students</div></div>
+            <div class="coach-stat"><div class="coach-stat-val">5.0★</div><div class="coach-stat-key">Rating</div></div>
+          </div>
+          <p style="font-size:.88rem;margin-bottom:.75rem">Nigeria Tennis Federation certified coach. Focuses on women and girls' development, footwork mastery, and mental performance. Based in Abuja.</p>
+          <div class="coach-tags">
+            <span class="coach-tag">Women's Dev</span>
+            <span class="coach-tag">Footwork</span>
+            <span class="coach-tag">Mental Game</span>
+          </div>
+          <a href="#book" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">Book with Fatima</a>
+        </div>
+      </div>
+
+      <div class="coach-card reveal reveal-delay-2">
+        <div class="coach-header">
+          <div class="coach-avatar">🧑</div>
+          <div class="coach-name">Coach Tolu Bello</div>
+          <div class="coach-title">Fitness &amp; Athletic Performance</div>
+        </div>
+        <div class="coach-body">
+          <div class="coach-stat-row">
+            <div class="coach-stat"><div class="coach-stat-val">8+</div><div class="coach-stat-key">Years</div></div>
+            <div class="coach-stat"><div class="coach-stat-val">120+</div><div class="coach-stat-key">Students</div></div>
+            <div class="coach-stat"><div class="coach-stat-val">4.8★</div><div class="coach-stat-key">Rating</div></div>
+          </div>
+          <p style="font-size:.88rem;margin-bottom:.75rem">Strength &amp; conditioning specialist focused on tennis athletes. Worked with Nigeria's Fed Cup and Davis Cup teams on physical preparation.</p>
+          <div class="coach-tags">
+            <span class="coach-tag">S&amp;C</span>
+            <span class="coach-tag">Speed</span>
+            <span class="coach-tag">Injury Prevention</span>
+          </div>
+          <a href="#book" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">Book with Tolu</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING SYSTEM -->
+<section class="section booking-section" id="book">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Booking</div>
+      <h2 class="section-title reveal">Book Your <span>Session</span></h2>
+      <p class="section-sub reveal">Fill in your details below and a member of our coaching team will confirm your session within 24 hours with a payment link.</p>
+    </div>
+
+    <div class="grid-2" style="gap:3rem;align-items:start">
+
+      <div class="reveal">
+        <h3 style="margin-bottom:1.5rem">How Booking Works</h3>
+        <div class="booking-step">
+          <div class="booking-step-num">1</div>
+          <div>
+            <h4>Fill the Booking Form</h4>
+            <p>Choose your session type, preferred coach, date, and time. Add any notes about your goals or current level.</p>
+          </div>
+        </div>
+        <div class="booking-step">
+          <div class="booking-step-num">2</div>
+          <div>
+            <h4>Receive Confirmation &amp; Payment Link</h4>
+            <p>Within 24 hours we'll confirm availability and send a secure Paystack or Raenest payment link.</p>
+          </div>
+        </div>
+        <div class="booking-step">
+          <div class="booking-step-num">3</div>
+          <div>
+            <h4>Complete Payment</h4>
+            <p>Pay securely online. We accept cards, bank transfer, and USSD. International payments via Raenest.</p>
+          </div>
+        </div>
+        <div class="booking-step">
+          <div class="booking-step-num">4</div>
+          <div>
+            <h4>Join Your Session</h4>
+            <p>Receive your Zoom link (virtual) or venue details (in-person). Show up ready to work and grow.</p>
+          </div>
+        </div>
+        <div class="booking-step">
+          <div class="booking-step-num">5</div>
+          <div>
+            <h4>Get Your Post-Session Report</h4>
+            <p>Within 48 hours receive your written report with action points and next session recommendations.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;padding:1.5rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:var(--radius)">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
+            <span>💳</span>
+            <strong style="color:var(--navy);font-size:.9rem">Payment Methods</strong>
+          </div>
+          <p style="font-size:.85rem">Paystack (NG cards, bank transfer, USSD) · Raenest (international / diaspora payments) · Bank transfer available on request.</p>
+        </div>
+      </div>
+
+      <form id="booking-form" data-type="booking" class="booking-form reveal reveal-delay-1">
+        <h3 style="margin-bottom:1.5rem">Booking Request</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" placeholder="+234 (0) 800 000 0000" />
+        </div>
+        <div class="form-group">
+          <label>Session Type *</label>
+          <select required>
+            <option value="">Select a service</option>
+            <option>Virtual 1-on-1 Coaching — ₦18,000</option>
+            <option>Match Video Analysis — ₦25,000</option>
+            <option>Personalised Training Plan (4-week) — ₦35,000</option>
+            <option>In-Person Session (Lagos) — ₦45,000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Coach</label>
+          <select>
+            <option>No preference — assign best available</option>
+            <option>Coach Kazeem Rasaki</option>
+            <option>Coach Fatima Abubakar</option>
+            <option>Coach Tolu Bello</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date *</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select>
+              <option>Morning (8am–12pm WAT)</option>
+              <option>Afternoon (12pm–4pm WAT)</option>
+              <option>Evening (4pm–8pm WAT)</option>
+              <option>Flexible — any time</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Player Level</label>
+          <select>
+            <option>Complete Beginner</option>
+            <option>Beginner (some experience)</option>
+            <option>Intermediate</option>
+            <option>Advanced / Competitive Junior</option>
+            <option>Adult Recreational</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Goals / Notes</label>
+          <textarea rows="3" placeholder="What do you want to achieve from this session? Any specific areas to focus on?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-lg" style="width:100%;justify-content:center">📅 Submit Booking Request</button>
+        <p style="font-size:.78rem;color:var(--gray-400);text-align:center;margin-top:.75rem">We'll confirm within 24 hours via email &amp; WhatsApp.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--white)">
+  <div class="container" style="max-width:800px">
+    <div class="section-header text-center">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title reveal">Common <span>Questions</span></h2>
+    </div>
+    <div class="accordion reveal">
+      <div class="accordion-item">
+        <button class="accordion-btn">What equipment do I need for a virtual session? <span class="accordion-icon">+</span></button>
+        <div class="accordion-body">You need a smartphone or laptop with a camera, stable internet connection, and access to a tennis court (or open space). You don't need specialist equipment — most players use a phone propped against a fence or fence post.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">How do I submit footage for match analysis? <span class="accordion-icon">+</span></button>
+        <div class="accordion-body">After booking, you'll receive an upload link via email. You can share footage via Google Drive, WhatsApp, or WeTransfer. Most players send 1–2 sets from a recent match. The more recent the better.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">Can parents participate in virtual sessions? <span class="accordion-icon">+</span></button>
+        <div class="accordion-body">Absolutely. We encourage parents to join the first session. Our coaches explain the development plan clearly so parents and players are aligned on goals and expectations.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">What is your cancellation policy? <span class="accordion-icon">+</span></button>
+        <div class="accordion-body">Cancellations made 24 hours before the session receive a full refund or reschedule. Cancellations within 24 hours are non-refundable but can be rescheduled once. No-shows forfeit the session.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">Do you offer packages for multiple sessions? <span class="accordion-icon">+</span></button>
+        <div class="accordion-body">Yes. Our Elite community membership includes 2 virtual coaching sessions per month. We also offer 5-session packs at a 15% discount — contact us directly or join the Elite plan for the best value.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label">Save on Coaching</div>
+    <h2>Elite Members Get <span style="color:var(--gold)">2 Sessions/Month Included</span></h2>
+    <p>Join the Elite membership plan and get virtual coaching sessions, match analysis, and your full training plan as part of your membership.</p>
+    <div class="cta-btns">
+      <a href="community.html" class="btn btn-gold btn-lg">View Elite Plan</a>
+      <a href="#book" class="btn btn-outline-white btn-lg">Book a Single Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex">
+          <div class="nav-logo-icon">🎾</div>
+          <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+        </a>
+        <p>Developing the next generation of African tennis talent through world-class online education, coaching, and community.</p>
+        <div class="footer-social">
+          <div class="social-btn">📸</div><div class="social-btn">🐦</div>
+          <div class="social-btn">▶️</div><div class="social-btn">💬</div>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="courses.html">Online Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Book Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.4);font-size:.85rem">📞 +234 (0) 800 EDGE TEN<br>📧 hello@allondeckhub.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 All ONDECK HUB. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

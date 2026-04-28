@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Resources | All ONDECK HUB</title>
+  <meta name="description" content="Training tips, mindset guides, scholarship news, fitness resources, and tennis development insights for African players." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .blog-hero-card {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 3rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .blog-hero-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .blog-hero-img {
+      background: linear-gradient(135deg, var(--navy-light), #1a3a6e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem; min-height: 300px;
+    }
+    .blog-hero-body { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .blog-hero-body .blog-category { font-size: .8rem; }
+    .blog-hero-body h2 { color: var(--white); margin: .75rem 0; font-size: clamp(1.3rem,2.5vw,1.9rem); }
+    .blog-hero-body p  { color: rgba(255,255,255,.6); margin-bottom: 1.5rem; }
+    .blog-hero-author { display: flex; align-items: center; gap: .75rem; }
+    .blog-hero-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .blog-hero-name   { color: var(--white); font-weight: 700; font-size: .88rem; }
+    .blog-hero-date   { color: rgba(255,255,255,.4); font-size: .75rem; }
+
+    .blog-sidebar { position: sticky; top: 100px; }
+    .sidebar-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-sm); margin-bottom: 1.5rem; }
+    .sidebar-card h4 { font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); margin-bottom: 1.25rem; }
+    .sidebar-category {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .65rem 0; border-bottom: 1px solid var(--gray-100);
+      cursor: pointer; transition: var(--transition);
+    }
+    .sidebar-category:last-child { border-bottom: none; }
+    .sidebar-category:hover { padding-left: .25rem; }
+    .sidebar-category-name { font-size: .88rem; font-weight: 600; color: var(--navy); }
+    .sidebar-category-count { font-size: .75rem; color: var(--gray-400); background: var(--gray-100); padding: .2rem .6rem; border-radius: 50px; }
+    .popular-post { display: flex; gap: .75rem; padding: .75rem 0; border-bottom: 1px solid var(--gray-100); }
+    .popular-post:last-child { border-bottom: none; }
+    .popular-post-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--gold); opacity: .4; line-height: 1; flex-shrink: 0; width: 1.5rem; }
+    .popular-post-title { font-size: .82rem; font-weight: 700; color: var(--navy); line-height: 1.3; cursor: pointer; transition: var(--transition); }
+    .popular-post-title:hover { color: var(--gold); }
+    .popular-post-date { font-size: .72rem; color: var(--gray-400); margin-top: .25rem; }
+
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag {
+      padding: .35rem .85rem; background: var(--gray-100); border-radius: 50px;
+      font-size: .75rem; font-weight: 700; color: var(--navy);
+      cursor: pointer; transition: var(--transition);
+    }
+    .tag:hover { background: var(--gold); color: var(--navy-dark); }
+
+    .article-card { cursor: pointer; }
+    .article-card:hover h4 { color: var(--gold); }
+
+    .resource-download {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 1.5rem; box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; gap: 1rem;
+      border: 2px solid transparent; transition: var(--transition);
+    }
+    .resource-download:hover { border-color: var(--gold); transform: translateX(4px); }
+    .resource-icon { font-size: 2.2rem; flex-shrink: 0; }
+    .resource-title { font-weight: 700; font-size: .95rem; color: var(--navy); margin-bottom: .2rem; }
+    .resource-desc  { font-size: .82rem; color: var(--gray-400); }
+    .resource-dl { margin-left: auto; flex-shrink: 0; }
+
+    @media (max-width: 1024px) {
+      .blog-hero-card { grid-template-columns: 1fr; }
+      .blog-hero-img { min-height: 200px; }
+    }
+    @media (max-width: 768px) {
+      .blog-layout { grid-template-columns: 1fr; }
+      .blog-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🎾</div>
+        <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li><li><a href="coaching.html">Coaching</a></li>
+        <li><a href="community.html">Community</a></li><li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="courses.html" class="btn btn-outline-white btn-sm">Browse Courses</a>
+        <a href="community.html" class="btn btn-gold btn-sm">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav container">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a>
+    <a href="talent.html">Talent Showcase</a><a href="coaching.html">Coaching</a>
+    <a href="community.html">Community</a><a href="about.html">About</a><a href="blog.html">Blog</a>
+    <a href="community.html" class="btn btn-gold">Join Now →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Blog &amp; Resources</span></div>
+    <h1>Blog &amp; <span style="color:var(--gold)">Resources</span></h1>
+    <p>Training tips, mindset guides, scholarship news, and tennis development insights — written specifically for African players.</p>
+  </div>
+</section>
+
+<!-- MAIN BLOG SECTION -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+
+    <!-- Featured Article -->
+    <a href="#" class="blog-hero-card reveal" onclick="showToast('📖','Full article coming soon — join Pro for early access!');return false;">
+      <div class="blog-hero-img">🎓</div>
+      <div class="blog-hero-body">
+        <span class="blog-category">⭐ Featured · Scholarships</span>
+        <h2>The Complete Guide to Getting a US Tennis Scholarship as an African Player in 2026</h2>
+        <p>Everything you need to know — eligibility, timelines, recruiting contacts, UTR requirements, and how to stand out to US college coaches from Nigeria, Ghana, or Kenya.</p>
+        <div class="blog-hero-author">
+          <div class="blog-hero-avatar">👨</div>
+          <div>
+            <div class="blog-hero-name">Coach Kazeem Rasaki</div>
+            <div class="blog-hero-date">April 22, 2026 · 14 min read</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Blog Layout: Articles + Sidebar -->
+    <div class="grid-2 blog-layout" style="grid-template-columns:1fr 340px;gap:3rem;align-items:start">
+
+      <!-- ARTICLES GRID -->
+      <div>
+        <!-- Category filter pills -->
+        <div class="filter-bar" style="margin-bottom:2rem">
+          <button class="filter-btn active" onclick="filterPosts('all',this)">All</button>
+          <button class="filter-btn" onclick="filterPosts('training',this)">Training</button>
+          <button class="filter-btn" onclick="filterPosts('mindset',this)">Mindset</button>
+          <button class="filter-btn" onclick="filterPosts('scholarships',this)">Scholarships</button>
+          <button class="filter-btn" onclick="filterPosts('fitness',this)">Fitness</button>
+          <button class="filter-btn" onclick="filterPosts('development',this)">Development</button>
+        </div>
+
+        <div id="posts-grid" style="display:flex;flex-direction:column;gap:1.5rem">
+
+          <div class="card article-card reveal" data-cat="training" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg)">🎯</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Training</span><span class="blog-date">Apr 20, 2026</span></div>
+                <h4>5 Drills Every African Junior Should Master Before Their First Tournament</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">Preparation is everything. These court drills are used by top ITF juniors to sharpen consistency under pressure and win more tight matches.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="scholarships" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg);background:linear-gradient(135deg,#162952,#0D1B3E)">🏫</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Scholarships</span><span class="blog-date">Apr 14, 2026</span></div>
+                <h4>Top 10 Tennis Scholarships Available to African Players in 2026</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">Funding your tennis journey is possible. A complete breakdown of US college tennis scholarships available to African players right now.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="mindset" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg);background:linear-gradient(135deg,#2a1a5e,#0D1B3E)">🧘</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Mindset</span><span class="blog-date">Apr 8, 2026</span></div>
+                <h4>The Mental Edge: How Elite Players Stay Calm Under Match Pressure</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">Mental toughness separates good players from great ones. Proven techniques used by professional players to stay composed when it matters most.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="fitness" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg);background:linear-gradient(135deg,#1a4a2e,#0D1B3E)">💪</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Fitness</span><span class="blog-date">Apr 2, 2026</span></div>
+                <h4>Tennis Fitness on a Budget: Training Like a Pro Without a Gym</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">You don't need an expensive gym membership to build a tennis-fit body. Here's a complete bodyweight and resistance band programme you can do anywhere in Nigeria.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="development" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg)">🗺️</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Development</span><span class="blog-date">Mar 25, 2026</span></div>
+                <h4>The African Junior Tennis Pathway: From Club to ITF to Professional</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">A step-by-step breakdown of the tournament pathway available to African junior players — from local club competitions to the ITF Junior circuit and beyond.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="training" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg);background:linear-gradient(135deg,#162952,#0D1B3E)">🎾</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Training</span><span class="blog-date">Mar 18, 2026</span></div>
+                <h4>How to Improve Your Serve Percentage by 20% in 4 Weeks</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">The serve is the one shot entirely in your control. Follow this 4-week structured programme to add consistency and pace to your first and second serves.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="mindset" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg);background:linear-gradient(135deg,#2a1a5e,#0D1B3E)">🧠</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Mindset</span><span class="blog-date">Mar 10, 2026</span></div>
+                <h4>Why African Players Are Built for Grand Slam Success — and How to Unlock It</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">Toughness, resilience, hunger, and natural athleticism. African players have everything it takes. What's missing — and how to fill the gap.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card article-card reveal" data-cat="scholarships" onclick="showToast('📖','Full article — join to read!')">
+            <div style="display:grid;grid-template-columns:140px 1fr;gap:0">
+              <div class="blog-card-img" style="aspect-ratio:1;font-size:2.5rem;border-radius:var(--radius-lg) 0 0 var(--radius-lg)">📝</div>
+              <div class="card-body">
+                <div class="blog-meta"><span class="blog-category">Scholarships</span><span class="blog-date">Mar 3, 2026</span></div>
+                <h4>How to Write a Winning College Tennis Recruiting Profile as an African Player</h4>
+                <p class="blog-excerpt" style="-webkit-line-clamp:2">US coaches receive hundreds of emails. Here's how to make your recruiting email stand out — with real examples from players who got offers.</p>
+                <a href="#" class="read-more" onclick="showToast('📖','Full article — join to read!');return false;">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:3rem">
+          <button class="btn btn-gold btn-sm">1</button>
+          <button class="btn btn-outline btn-sm" onclick="showToast('📖','More articles loading...')">2</button>
+          <button class="btn btn-outline btn-sm" onclick="showToast('📖','More articles loading...')">3</button>
+          <button class="btn btn-outline btn-sm" onclick="showToast('📖','More articles loading...')">→</button>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+
+        <!-- Search -->
+        <div class="sidebar-card">
+          <h4>Search</h4>
+          <div style="display:flex;gap:.5rem">
+            <input type="text" placeholder="Search articles..." style="flex:1;padding:.7rem 1rem;border:2px solid var(--gray-200);border-radius:var(--radius);font-size:.85rem;outline:none;transition:var(--transition);" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--gray-200)'" />
+            <button class="btn btn-gold btn-sm" onclick="showToast('🔍','Search coming soon!')">Go</button>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-card">
+          <h4>Categories</h4>
+          <div class="sidebar-category" onclick="filterPosts('training',null)">
+            <span class="sidebar-category-name">🎾 Training Tips</span>
+            <span class="sidebar-category-count">12</span>
+          </div>
+          <div class="sidebar-category" onclick="filterPosts('mindset',null)">
+            <span class="sidebar-category-name">🧠 Mindset</span>
+            <span class="sidebar-category-count">8</span>
+          </div>
+          <div class="sidebar-category" onclick="filterPosts('scholarships',null)">
+            <span class="sidebar-category-name">🏫 Scholarships</span>
+            <span class="sidebar-category-count">9</span>
+          </div>
+          <div class="sidebar-category" onclick="filterPosts('fitness',null)">
+            <span class="sidebar-category-name">💪 Fitness</span>
+            <span class="sidebar-category-count">7</span>
+          </div>
+          <div class="sidebar-category" onclick="filterPosts('development',null)">
+            <span class="sidebar-category-name">📈 Development</span>
+            <span class="sidebar-category-count">11</span>
+          </div>
+        </div>
+
+        <!-- Popular Posts -->
+        <div class="sidebar-card">
+          <h4>Most Popular</h4>
+          <div class="popular-post">
+            <div class="popular-post-num">01</div>
+            <div>
+              <div class="popular-post-title" onclick="showToast('📖','Full article — join to read!')">The Complete Guide to US Tennis Scholarships for Africans</div>
+              <div class="popular-post-date">Apr 22, 2026 · 3.4k reads</div>
+            </div>
+          </div>
+          <div class="popular-post">
+            <div class="popular-post-num">02</div>
+            <div>
+              <div class="popular-post-title" onclick="showToast('📖','Full article — join to read!')">5 Drills Every Junior Should Master</div>
+              <div class="popular-post-date">Apr 20, 2026 · 2.1k reads</div>
+            </div>
+          </div>
+          <div class="popular-post">
+            <div class="popular-post-num">03</div>
+            <div>
+              <div class="popular-post-title" onclick="showToast('📖','Full article — join to read!')">The Mental Edge: Staying Calm Under Pressure</div>
+              <div class="popular-post-date">Apr 8, 2026 · 1.8k reads</div>
+            </div>
+          </div>
+          <div class="popular-post">
+            <div class="popular-post-num">04</div>
+            <div>
+              <div class="popular-post-title" onclick="showToast('📖','Full article — join to read!')">African Junior Tennis Pathway Explained</div>
+              <div class="popular-post-date">Mar 25, 2026 · 1.5k reads</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="sidebar-card">
+          <h4>Topics</h4>
+          <div class="tag-cloud">
+            <span class="tag">Forehand</span><span class="tag">Serve</span>
+            <span class="tag">Footwork</span><span class="tag">UTR</span>
+            <span class="tag">ITF Junior</span><span class="tag">NCAA</span>
+            <span class="tag">Nigeria</span><span class="tag">Fitness</span>
+            <span class="tag">Mindset</span><span class="tag">Tactics</span>
+            <span class="tag">Backhand</span><span class="tag">Volley</span>
+            <span class="tag">Africa</span><span class="tag">Scholarship</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="background:var(--navy);border-radius:var(--radius-lg);padding:1.75rem;border:1px solid rgba(201,168,76,.2)">
+          <div style="font-size:2rem;margin-bottom:.75rem">🔓</div>
+          <h4 style="color:var(--white);margin-bottom:.5rem">Unlock All Articles</h4>
+          <p style="color:rgba(255,255,255,.55);font-size:.85rem;margin-bottom:1.25rem">Pro members get unlimited access to all articles, guides, and video breakdowns.</p>
+          <a href="community.html" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">Join Pro — ₦9,500/mo</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- FREE RESOURCES DOWNLOADS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Free Downloads</div>
+      <h2 class="section-title reveal">Free Resources for <span>Every Player</span></h2>
+      <p class="section-sub reveal">Download these free guides and get started on your development journey today — no payment required.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;max-width:800px;margin:0 auto">
+
+      <div class="resource-download reveal">
+        <span class="resource-icon">📋</span>
+        <div>
+          <div class="resource-title">The African Tennis Player Development Checklist</div>
+          <div class="resource-desc">A complete self-assessment tool covering technique, fitness, mindset, and tournament readiness. PDF · 8 pages</div>
+        </div>
+        <div class="resource-dl">
+          <button class="btn btn-gold btn-sm" onclick="showToast('📥','Download starting — check your downloads folder!')">Download Free</button>
+        </div>
+      </div>
+
+      <div class="resource-download reveal">
+        <span class="resource-icon">🏫</span>
+        <div>
+          <div class="resource-title">2026 US College Tennis Scholarship Guide for African Players</div>
+          <div class="resource-desc">Schools, requirements, deadlines, and email templates. PDF · 22 pages</div>
+        </div>
+        <div class="resource-dl">
+          <button class="btn btn-gold btn-sm" onclick="showToast('📥','Download starting — check your downloads folder!')">Download Free</button>
+        </div>
+      </div>
+
+      <div class="resource-download reveal">
+        <span class="resource-icon">🏃</span>
+        <div>
+          <div class="resource-title">4-Week Tennis Fitness Programme (No Gym Required)</div>
+          <div class="resource-desc">Bodyweight and resistance band workout plan designed for tennis. PDF · 12 pages</div>
+        </div>
+        <div class="resource-dl">
+          <button class="btn btn-gold btn-sm" onclick="showToast('📥','Download starting — check your downloads folder!')">Download Free</button>
+        </div>
+      </div>
+
+      <div class="resource-download reveal">
+        <span class="resource-icon">🧠</span>
+        <div>
+          <div class="resource-title">Mental Performance Pre-Match Routine Template</div>
+          <div class="resource-desc">A 3-phase warm-up routine used by competitive juniors. PDF · 4 pages</div>
+        </div>
+        <div class="resource-dl">
+          <button class="btn btn-gold btn-sm" onclick="showToast('📥','Download starting — check your downloads folder!')">Download Free</button>
+        </div>
+      </div>
+
+      <div class="resource-download reveal">
+        <span class="resource-icon">📊</span>
+        <div>
+          <div class="resource-title">Match Statistics Tracker Template</div>
+          <div class="resource-desc">Excel/Google Sheets tracker to log first serve %, winners, errors, break points. Spreadsheet</div>
+        </div>
+        <div class="resource-dl">
+          <button class="btn btn-gold btn-sm" onclick="showToast('📥','Download starting — check your downloads folder!')">Download Free</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO RESOURCES -->
+<section class="section" style="background:var(--navy)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label" style="color:var(--gold)">Video Content</div>
+      <h2 class="section-title reveal" style="color:var(--white)">Watch &amp; <span style="color:var(--gold)">Learn</span></h2>
+      <p class="section-sub reveal" style="color:rgba(255,255,255,.6)">Free video breakdowns, technique guides, and player development content from our coaches.</p>
+    </div>
+    <div class="grid-3">
+      <div class="reveal">
+        <div class="video-placeholder">
+          <div class="play-btn">▶</div>
+          <div class="video-label">Forehand Technique Breakdown — 8 min</div>
+        </div>
+        <div style="padding:.75rem 0">
+          <div style="color:var(--gold);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Training</div>
+          <h4 style="color:var(--white);font-size:.95rem;margin:.3rem 0">Perfect Forehand in 5 Steps</h4>
+          <div style="color:rgba(255,255,255,.4);font-size:.78rem">Coach Emeka · 12.4k views</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="video-placeholder">
+          <div class="play-btn">▶</div>
+          <div class="video-label">Serve Mechanics — 11 min</div>
+        </div>
+        <div style="padding:.75rem 0">
+          <div style="color:var(--gold);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Technique</div>
+          <h4 style="color:var(--white);font-size:.95rem;margin:.3rem 0">Add 20 km/h to Your Serve Today</h4>
+          <div style="color:rgba(255,255,255,.4);font-size:.78rem">Coach Adaeze · 9.8k views</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="video-placeholder">
+          <div class="play-btn">▶</div>
+          <div class="video-label">Match Analysis — 15 min</div>
+        </div>
+        <div style="padding:.75rem 0">
+          <div style="color:var(--gold);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Tactics</div>
+          <h4 style="color:var(--white);font-size:.95rem;margin:.3rem 0">Reading Your Opponent's Game</h4>
+          <div style="color:rgba(255,255,255,.4);font-size:.78rem">Coach Emeka · 7.2k views</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn btn-gold btn-lg" onclick="showToast('▶️','Subscribe to our YouTube channel for free content!')">View All Videos on YouTube →</button>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label">Weekly Insights</div>
+    <h2>Get the Best Articles <span style="color:var(--gold)">Delivered Free</span></h2>
+    <p>Join 3,000+ players and parents getting our weekly newsletter — training tips, scholarship alerts, and exclusive guides.</p>
+    <form id="blog-newsletter" data-type="newsletter" style="max-width:480px;margin:0 auto">
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <input type="email" placeholder="Enter your email address" required style="flex:1;min-width:200px;padding:.9rem 1.25rem;border-radius:50px;border:none;font-size:.95rem;outline:none;" />
+        <button type="submit" class="btn btn-gold">Subscribe Free</button>
+      </div>
+      <p style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:.75rem;text-align:center">No spam. Unsubscribe anytime.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex">
+          <div class="nav-logo-icon">🎾</div>
+          <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+        </a>
+        <p>Developing the next generation of African tennis talent through world-class online education, coaching, and community.</p>
+        <div class="footer-social">
+          <div class="social-btn">📸</div><div class="social-btn">🐦</div>
+          <div class="social-btn">▶️</div><div class="social-btn">💬</div>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="courses.html">Online Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Book Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.4);font-size:.85rem">📞 +234 (0) 800 EDGE TEN<br>📧 hello@allondeckhub.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 All ONDECK HUB. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterPosts(cat, btn) {
+  if (btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.querySelectorAll('.article-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

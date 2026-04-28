@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talent Showcase | All ONDECK HUB</title>
+  <meta name="description" content="Create your player profile and get discovered by coaches, academies, and scouts worldwide. Africa's premier tennis talent showcase platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .showcase-intro {
+      background: var(--gray-100);
+    }
+    .how-it-works { background: var(--white); }
+    .profiles-section { background: var(--gray-100); }
+    .create-profile-section { background: var(--navy); }
+    .profile-form-section { background: var(--white); }
+
+    .feature-icon-lg {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, rgba(201,168,76,.15), rgba(201,168,76,.05));
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 1.25rem;
+      transition: var(--transition);
+    }
+    .benefit-card:hover .feature-icon-lg {
+      background: var(--gold);
+    }
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+    .benefit-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .scout-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      transition: var(--transition);
+    }
+    .scout-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .scout-logo {
+      width: 60px; height: 60px;
+      border-radius: var(--radius);
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .scout-name { font-weight: 700; color: var(--navy); font-size: .95rem; }
+    .scout-type { font-size: .78rem; color: var(--gray-400); }
+    .scout-country { font-size: .8rem; color: var(--gold); font-weight: 600; }
+
+    .profile-create-form {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .profile-create-form .form-group label { color: rgba(255,255,255,.8); }
+    .profile-create-form input,
+    .profile-create-form select,
+    .profile-create-form textarea {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.15);
+      color: var(--white);
+    }
+    .profile-create-form input::placeholder,
+    .profile-create-form textarea::placeholder { color: rgba(255,255,255,.3); }
+    .profile-create-form input:focus,
+    .profile-create-form select:focus { background: rgba(255,255,255,.12); }
+    .profile-create-form select option { background: var(--navy); color: var(--white); }
+    .skills-select {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem;
+    }
+    .skill-toggle {
+      padding: .4rem 1rem;
+      border: 2px solid rgba(201,168,76,.3);
+      border-radius: 50px;
+      color: rgba(255,255,255,.6);
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      background: transparent;
+      font-family: var(--font-head);
+    }
+    .skill-toggle.selected, .skill-toggle:hover {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🎾</div>
+        <div>
+          <div class="nav-logo-text"><span>All ONDECK</span> HUB</div>
+          <div class="nav-logo-sub">Tennis Hub</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="courses.html" class="btn btn-outline-white btn-sm">Browse Courses</a>
+        <a href="community.html" class="btn btn-gold btn-sm">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav container">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a>
+    <a href="talent.html">Talent Showcase</a><a href="coaching.html">Coaching</a>
+    <a href="community.html">Community</a><a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="#create-profile" class="btn btn-gold">Create My Profile →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Talent Showcase</span></div>
+    <h1>African Tennis <span style="color:var(--gold)">Talent Showcase</span></h1>
+    <p>Create your player profile and get discovered by coaches, academies, scouts, and scholarship programmes worldwide.</p>
+    <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#create-profile" class="btn btn-gold btn-lg">Create My Profile</a>
+      <a href="#profiles" class="btn btn-outline-white btn-lg">Browse Profiles</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section showcase-intro">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Why Create a Profile</div>
+      <h2 class="section-title reveal">Your Talent Deserves to Be <span>Seen</span></h2>
+      <p class="section-sub reveal">A free player profile on All ONDECK HUB puts your talent in front of a global audience — coaches, scouts, and academies actively searching for African players.</p>
+    </div>
+    <div class="grid-3">
+      <div class="benefit-card reveal">
+        <div class="feature-icon-lg">🌍</div>
+        <h3>Global Visibility</h3>
+        <p>Your profile is searchable by coaches and scouts in the US, UK, Europe, and across Africa looking for talented players.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="feature-icon-lg">🏫</div>
+        <h3>Scholarship Pathways</h3>
+        <p>US college tennis programmes and academies browse our showcase actively. Your profile could be your scholarship application.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="feature-icon-lg">📊</div>
+        <h3>Track Your Development</h3>
+        <p>Log your UTR, tournament results, and statistics over time. Show growth that impresses recruiters and sponsors.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="feature-icon-lg">🎬</div>
+        <h3>Video Highlights</h3>
+        <p>Upload match footage and highlight reels. Let your game speak louder than any resume or cover letter ever could.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="feature-icon-lg">🤝</div>
+        <h3>Connect with Coaches</h3>
+        <p>Coaches can message you directly through the platform. No middleman. Direct connection to the people who can develop you.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="feature-icon-lg">🏆</div>
+        <h3>Verified Credentials</h3>
+        <p>We verify tournament results, rankings, and coach endorsements — so your profile stands out as legitimate and trustworthy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Process</div>
+      <h2 class="section-title reveal">Create Your Profile in <span>3 Simple Steps</span></h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Sign Up Free</h4>
+        <p>Create your All ONDECK HUB account in under 2 minutes. No payment required to get started.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Build Your Profile</h4>
+        <p>Add your stats, photos, match videos, tournament history, and let your personality shine through.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Get Discovered</h4>
+        <p>Your profile goes live. Coaches search, scouts browse, and opportunities start coming to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO'S LOOKING -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Scouts &amp; Partners</div>
+      <h2 class="section-title reveal">Who's Looking at <span>African Talent</span></h2>
+      <p class="section-sub reveal">These organisations and many more actively browse the All ONDECK HUB Showcase for talent.</p>
+    </div>
+    <div class="grid-3">
+      <div class="scout-card reveal">
+        <div class="scout-logo">🇺🇸</div>
+        <div>
+          <div class="scout-name">US College Tennis Programs</div>
+          <div class="scout-type">NCAA Division I, II &amp; III</div>
+          <div class="scout-country">United States</div>
+        </div>
+      </div>
+      <div class="scout-card reveal reveal-delay-1">
+        <div class="scout-logo">🇬🇧</div>
+        <div>
+          <div class="scout-name">UK Tennis Academies</div>
+          <div class="scout-type">LTA Partner Academies</div>
+          <div class="scout-country">United Kingdom</div>
+        </div>
+      </div>
+      <div class="scout-card reveal reveal-delay-2">
+        <div class="scout-logo">🌍</div>
+        <div>
+          <div class="scout-name">African Tennis Federation</div>
+          <div class="scout-type">Continental Team Selectors</div>
+          <div class="scout-country">Pan-Africa</div>
+        </div>
+      </div>
+      <div class="scout-card reveal">
+        <div class="scout-logo">🇫🇷</div>
+        <div>
+          <div class="scout-name">European Junior Academies</div>
+          <div class="scout-type">France, Spain, Germany</div>
+          <div class="scout-country">Europe</div>
+        </div>
+      </div>
+      <div class="scout-card reveal reveal-delay-1">
+        <div class="scout-logo">🏆</div>
+        <div>
+          <div class="scout-name">ITF Junior Scouts</div>
+          <div class="scout-type">International Junior Circuit</div>
+          <div class="scout-country">Worldwide</div>
+        </div>
+      </div>
+      <div class="scout-card reveal reveal-delay-2">
+        <div class="scout-logo">💰</div>
+        <div>
+          <div class="scout-name">Sports Sponsorship Brands</div>
+          <div class="scout-type">Equipment &amp; Apparel</div>
+          <div class="scout-country">Global</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE PROFILES -->
+<section class="section profiles-section" id="profiles">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Player Profiles</div>
+      <h2 class="section-title reveal">Meet Our <span>Rising Stars</span></h2>
+      <p class="section-sub reveal">A snapshot of the talent currently showcased on our platform. These players are actively seeking opportunities.</p>
+    </div>
+    <div class="grid-3">
+
+      <div class="player-card reveal">
+        <div class="player-card-header">
+          <div class="player-avatar">👦</div>
+          <div class="player-name">Chukwuemeka Obi</div>
+          <div class="player-location">📍 Lagos, Nigeria · Age 16</div>
+          <div style="margin-top:.5rem"><span class="badge badge-gold">Recruiting Open</span></div>
+        </div>
+        <div class="player-card-body">
+          <div class="player-stat-row">
+            <div class="player-stat"><div class="player-stat-val">4.2</div><div class="player-stat-key">UTR</div></div>
+            <div class="player-stat"><div class="player-stat-val">RH</div><div class="player-stat-key">Plays</div></div>
+            <div class="player-stat"><div class="player-stat-val">180cm</div><div class="player-stat-key">Height</div></div>
+            <div class="player-stat"><div class="player-stat-val">74kg</div><div class="player-stat-key">Weight</div></div>
+          </div>
+          <hr class="player-divider">
+          <div style="margin-bottom:.75rem">
+            <div style="color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem">Best Results</div>
+            <div style="color:rgba(255,255,255,.75);font-size:.82rem">🥈 Nigerian U18 Nationals — Runner-Up 2025</div>
+            <div style="color:rgba(255,255,255,.75);font-size:.82rem;margin-top:.25rem">🏆 Lagos Open U18 — Champion 2024</div>
+          </div>
+          <div class="player-skills">
+            <span class="player-skill-tag">Baseline Power</span>
+            <span class="player-skill-tag">Serve</span>
+            <span class="player-skill-tag">Fitness</span>
+            <span class="player-skill-tag">Consistency</span>
+          </div>
+          <div class="video-placeholder" style="margin-bottom:1rem">
+            <div class="play-btn">▶</div>
+            <div class="video-label">Watch Highlight Reel</div>
+          </div>
+          <a href="#create-profile" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">View Full Profile</a>
+        </div>
+      </div>
+
+      <div class="player-card reveal reveal-delay-1">
+        <div class="player-card-header">
+          <div class="player-avatar">👧</div>
+          <div class="player-name">Amara Diallo</div>
+          <div class="player-location">📍 Abuja, Nigeria · Age 14</div>
+          <div style="margin-top:.5rem"><span class="badge badge-green">Scholarship Seeking</span></div>
+        </div>
+        <div class="player-card-body">
+          <div class="player-stat-row">
+            <div class="player-stat"><div class="player-stat-val">3.8</div><div class="player-stat-key">UTR</div></div>
+            <div class="player-stat"><div class="player-stat-val">RH</div><div class="player-stat-key">Plays</div></div>
+            <div class="player-stat"><div class="player-stat-val">165cm</div><div class="player-stat-key">Height</div></div>
+            <div class="player-stat"><div class="player-stat-val">58kg</div><div class="player-stat-key">Weight</div></div>
+          </div>
+          <hr class="player-divider">
+          <div style="margin-bottom:.75rem">
+            <div style="color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem">Best Results</div>
+            <div style="color:rgba(255,255,255,.75);font-size:.82rem">🥉 ITF J60 Abuja — Semifinal 2025</div>
+            <div style="color:rgba(255,255,255,.75);font-size:.82rem;margin-top:.25rem">🏆 FCT Junior Open — Champion 2025</div>
+          </div>
+          <div class="player-skills">
+            <span class="player-skill-tag">Net Game</span>
+            <span class="player-skill-tag">Agility</span>
+            <span class="player-skill-tag">Mental Strength</span>
+          </div>
+          <div class="video-placeholder" style="margin-bottom:1rem">
+            <div class="play-btn">▶</div>
+            <div class="video-label">Watch Highlight Reel</div>
+          </div>
+          <a href="#create-profile" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">View Full Profile</a>
+        </div>
+      </div>
+
+      <div class="player-card reveal reveal-delay-2">
+        <div class="player-card-header">
+          <div class="player-avatar">🧑</div>
+          <div class="player-name">Kofi Mensah</div>
+          <div class="player-location">📍 Accra, Ghana · Age 17</div>
+          <div style="margin-top:.5rem"><span class="badge badge-gold">Recruiting Open</span></div>
+        </div>
+        <div class="player-card-body">
+          <div class="player-stat-row">
+            <div class="player-stat"><div class="player-stat-val">5.1</div><div class="player-stat-key">UTR</div></div>
+            <div class="player-stat"><div class="player-stat-val">LH</div><div class="player-stat-key">Plays</div></div>
+            <div class="player-stat"><div class="player-stat-val">183cm</div><div class="player-stat-key">Height</div></div>
+            <div class="player-stat"><div class="player-stat-val">78kg</div><div class="player-stat-key">Weight</div></div>
+          </div>
+          <hr class="player-divider">
+          <div style="margin-bottom:.75rem">
+            <div style="color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem">Best Results</div>
+            <div style="color:rgba(255,255,255,.75);font-size:.82rem">🥇 Ghana National Junior — Champion 2025</div>
+            <div style="color:rgba(255,255,255,.75);font-size:.82rem;margin-top:.25rem">🏆 ITF J60 Accra — QF 2025</div>
+          </div>
+          <div class="player-skills">
+            <span class="player-skill-tag">Heavy Topspin</span>
+            <span class="player-skill-tag">Drop Shot</span>
+            <span class="player-skill-tag">Tactics</span>
+          </div>
+          <div class="video-placeholder" style="margin-bottom:1rem">
+            <div class="play-btn">▶</div>
+            <div class="video-label">Watch Highlight Reel</div>
+          </div>
+          <a href="#create-profile" class="btn btn-gold btn-sm" style="width:100%;justify-content:center">View Full Profile</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <p style="color:var(--gray-400);margin-bottom:1rem">150+ players currently on the showcase</p>
+      <a href="#create-profile" class="btn btn-navy">Join the Showcase →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CREATE PROFILE FORM -->
+<section class="section create-profile-section" id="create-profile">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label" style="color:var(--gold)">Get Started Free</div>
+      <h2 class="section-title reveal" style="color:var(--white)">Create Your <span style="color:var(--gold)">Player Profile</span></h2>
+      <p class="section-sub reveal" style="color:rgba(255,255,255,.65)">Takes less than 5 minutes. Basic profiles are completely free.</p>
+    </div>
+    <form id="profile-form" data-type="profile" class="profile-create-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" placeholder="e.g. Chukwuemeka" required />
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" placeholder="e.g. Obi" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+234 (0) 800 000 0000" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Country *</label>
+          <select required>
+            <option value="">Select Country</option>
+            <option>Nigeria</option><option>Ghana</option><option>Kenya</option>
+            <option>South Africa</option><option>Egypt</option><option>Morocco</option>
+            <option>Ethiopia</option><option>Tanzania</option><option>Uganda</option>
+            <option>Cameroon</option><option>UK (Diaspora)</option><option>USA (Diaspora)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" placeholder="e.g. Lagos" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date of Birth *</label>
+          <input type="date" required />
+        </div>
+        <div class="form-group">
+          <label>Playing Hand</label>
+          <select>
+            <option>Right-Handed</option>
+            <option>Left-Handed</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>UTR Rating</label>
+          <input type="number" placeholder="e.g. 4.2" step="0.1" min="1" max="16" />
+        </div>
+        <div class="form-group">
+          <label>Years Playing</label>
+          <select>
+            <option>Less than 1 year</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Key Strengths (select all that apply)</label>
+        <div class="skills-select">
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Forehand</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Backhand</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Serve</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Return</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Volley</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Footwork</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Mental Strength</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Fitness</button>
+          <button type="button" class="skill-toggle" onclick="this.classList.toggle('selected')">Tactics</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Goals (what are you looking for?)</label>
+        <select>
+          <option>Scholarship in USA</option>
+          <option>European Academy Placement</option>
+          <option>Professional Player Development</option>
+          <option>National Team Consideration</option>
+          <option>Sponsorship / Equipment Deal</option>
+          <option>Just getting visibility</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Brief Bio</label>
+        <textarea rows="4" placeholder="Tell scouts and coaches about yourself — your story, training background, and ambitions..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold btn-lg" style="width:100%;justify-content:center">Create My Profile — It's Free 🎾</button>
+      <p style="color:rgba(255,255,255,.35);font-size:.78rem;text-align:center;margin-top:.75rem">By creating a profile, you agree to our Terms of Service and Privacy Policy.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label">Pro Members Get Featured</div>
+    <h2>Stand Out with a <span style="color:var(--gold)">Pro Showcase Profile</span></h2>
+    <p>Pro members get verified badges, featured placement in search results, and direct messages from coaches worldwide.</p>
+    <div class="cta-btns">
+      <a href="community.html" class="btn btn-gold btn-lg">Upgrade to Pro</a>
+      <a href="coaching.html" class="btn btn-outline-white btn-lg">Get Coaching First</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex">
+          <div class="nav-logo-icon">🎾</div>
+          <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+        </a>
+        <p>Developing the next generation of African tennis talent through world-class online education, coaching, and community.</p>
+        <div class="footer-social">
+          <div class="social-btn">📸</div><div class="social-btn">🐦</div>
+          <div class="social-btn">▶️</div><div class="social-btn">💬</div>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="courses.html">Online Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Book Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.4);font-size:.85rem">📞 +234 (0) 800 EDGE TEN<br>📧 hello@allondeckhub.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 All ONDECK HUB. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

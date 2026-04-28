@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community & Membership | All ONDECK HUB</title>
+  <meta name="description" content="Join Africa's premier tennis mentorship community. Weekly Q&As, training challenges, coaching support, and a network of players and parents." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .community-feature {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.5rem; background: var(--white);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+      transition: var(--transition); border: 2px solid transparent;
+    }
+    .community-feature:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .community-feature-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,.15), rgba(201,168,76,.05));
+      border-radius: var(--radius); display: flex; align-items: center;
+      justify-content: center; font-size: 1.6rem;
+    }
+    .community-feature h4 { margin-bottom: .3rem; }
+    .community-feature p  { font-size: .88rem; }
+
+    .challenge-card {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid rgba(201,168,76,.2);
+      transition: var(--transition);
+    }
+    .challenge-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .challenge-emoji { font-size: 2.5rem; margin-bottom: .75rem; }
+    .challenge-title { color: var(--white); font-size: 1rem; margin-bottom: .4rem; }
+    .challenge-desc  { color: rgba(255,255,255,.55); font-size: .85rem; margin-bottom: .75rem; }
+    .challenge-meta  { display: flex; align-items: center; justify-content: space-between; }
+    .challenge-participants { font-size: .78rem; color: var(--gold); font-weight: 700; }
+    .challenge-week { font-size: .75rem; color: rgba(255,255,255,.35); }
+
+    .member-row {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem; background: var(--white);
+      border-radius: var(--radius); margin-bottom: .75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .member-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--navy); display: flex; align-items: center;
+      justify-content: center; font-size: 1.4rem; flex-shrink: 0;
+    }
+    .member-name  { font-weight: 700; font-size: .92rem; color: var(--navy); }
+    .member-title { font-size: .78rem; color: var(--gray-400); }
+    .member-badge { margin-left: auto; }
+
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--white); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .compare-table th {
+      padding: 1.25rem 1rem; text-align: center;
+      font-family: var(--font-head); font-size: .85rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .06em;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .compare-table th:first-child { text-align: left; color: var(--gray-400); }
+    .compare-table th.featured-col { background: var(--navy); color: var(--gold); }
+    .compare-table td {
+      padding: 1rem; text-align: center;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: .9rem; color: var(--gray-600);
+    }
+    .compare-table td:first-child { text-align: left; font-weight: 600; color: var(--navy); }
+    .compare-table td.featured-col { background: rgba(13,27,62,.04); font-weight: 700; color: var(--navy); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .check-yes { color: #16a34a; font-size: 1.1rem; }
+    .check-no  { color: var(--gray-200); font-size: 1.1rem; }
+
+    .payment-badges {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: center; justify-content: center;
+      margin-top: 2rem;
+    }
+    .payment-badge {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .65rem 1.25rem;
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); box-shadow: var(--shadow-sm);
+      font-size: .85rem; font-weight: 700; color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🎾</div>
+        <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li><li><a href="coaching.html">Coaching</a></li>
+        <li><a href="community.html">Community</a></li><li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="courses.html" class="btn btn-outline-white btn-sm">Browse Courses</a>
+        <a href="#pricing" class="btn btn-gold btn-sm">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav container">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a>
+    <a href="talent.html">Talent Showcase</a><a href="coaching.html">Coaching</a>
+    <a href="community.html">Community</a><a href="about.html">About</a><a href="blog.html">Blog</a>
+    <a href="#pricing" class="btn btn-gold">Join Now →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Community</span></div>
+    <h1>Africa's Premier Tennis <span style="color:var(--gold)">Mentorship Community</span></h1>
+    <p>Weekly Q&As, training challenges, scholarship alerts, coaching support, and a network of players, parents, and coaches who get it.</p>
+    <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#pricing" class="btn btn-gold btn-lg">Join the Community</a>
+      <a href="#features" class="btn btn-outline-white btn-lg">See What's Inside</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY FEATURES -->
+<section class="section" id="features" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">What's Inside</div>
+      <h2 class="section-title reveal">Everything You Need to <span>Develop Faster</span></h2>
+      <p class="section-sub reveal">The Edge Tennis community is more than a chat group — it's a structured development ecosystem designed to accelerate your progress.</p>
+    </div>
+    <div class="grid-2" style="gap:1.25rem">
+      <div class="community-feature reveal">
+        <div class="community-feature-icon">🎙️</div>
+        <div>
+          <h4>Weekly Live Q&amp;A Sessions</h4>
+          <p>Every Thursday, Pro and Elite members join a live video call with our head coaches. Ask anything — technique, tactics, tournaments, scholarships, injuries.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal reveal-delay-1">
+        <div class="community-feature-icon">🏆</div>
+        <div>
+          <h4>Weekly Training Challenges</h4>
+          <p>New challenges drop every Monday. Film your attempt, post in the community, and get feedback from coaches and peers. Top performers get featured on our showcase.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal">
+        <div class="community-feature-icon">🎓</div>
+        <div>
+          <h4>Scholarship &amp; Tournament Alerts</h4>
+          <p>Be first to know about US college recruitment deadlines, ITF junior tournament registrations, and African continental championship opportunities.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal reveal-delay-1">
+        <div class="community-feature-icon">📞</div>
+        <div>
+          <h4>Monthly 1-on-1 Mentorship Call</h4>
+          <p>Pro members get a 30-minute personal call with a coach each month. Set goals, review progress, and get personalised guidance for your specific development needs.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal">
+        <div class="community-feature-icon">📚</div>
+        <div>
+          <h4>Unlimited Course Access</h4>
+          <p>Pro and Elite members unlock all 24 courses in the library with no individual purchase needed. New courses added monthly at no extra cost.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal reveal-delay-1">
+        <div class="community-feature-icon">👤</div>
+        <div>
+          <h4>Talent Showcase Profile</h4>
+          <p>Pro members get a verified showcase profile with enhanced visibility, a Pro badge, and the ability to receive direct messages from scouts and coaches.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal">
+        <div class="community-feature-icon">💬</div>
+        <div>
+          <h4>Private Community Forum</h4>
+          <p>Connect with players, parents, and coaches from across Africa and the diaspora. Share wins, ask questions, find hitting partners, and stay motivated.</p>
+        </div>
+      </div>
+      <div class="community-feature reveal reveal-delay-1">
+        <div class="community-feature-icon">📊</div>
+        <div>
+          <h4>Progress Tracking Dashboard</h4>
+          <p>Log your UTR, tournament results, fitness scores, and training sessions. See your development over time and share milestones with the community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGES -->
+<section class="section" style="background:var(--navy)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label" style="color:var(--gold)">This Week's Challenges</div>
+      <h2 class="section-title reveal" style="color:var(--white)">Compete. Improve. <span style="color:var(--gold)">Get Featured.</span></h2>
+      <p class="section-sub reveal" style="color:rgba(255,255,255,.6)">New challenges drop every Monday. Film your attempt and post in the community for coach feedback.</p>
+    </div>
+    <div class="grid-3">
+      <div class="challenge-card reveal">
+        <div class="challenge-emoji">🎯</div>
+        <h4 class="challenge-title">100 Cross-Court Forehands Challenge</h4>
+        <p class="challenge-desc">Hit 100 consecutive cross-court forehands inside the lines. Film your longest streak and post it.</p>
+        <div class="challenge-meta">
+          <span class="challenge-participants">🔥 128 attempts this week</span>
+          <span class="challenge-week">Week 17</span>
+        </div>
+      </div>
+      <div class="challenge-card reveal reveal-delay-1">
+        <div class="challenge-emoji">⚡</div>
+        <h4 class="challenge-title">First Serve % Tracker</h4>
+        <p class="challenge-desc">Track your first serve % in your next match or practice. Target: 65%+ in at least one set.</p>
+        <div class="challenge-meta">
+          <span class="challenge-participants">🔥 94 attempts this week</span>
+          <span class="challenge-week">Week 17</span>
+        </div>
+      </div>
+      <div class="challenge-card reveal reveal-delay-2">
+        <div class="challenge-emoji">🏃</div>
+        <h4 class="challenge-title">30-Second Agility Ladder</h4>
+        <p class="challenge-desc">Complete as many agility ladder reps as possible in 30 seconds. Film and post your fastest time.</p>
+        <div class="challenge-meta">
+          <span class="challenge-participants">🔥 201 attempts this week</span>
+          <span class="challenge-week">Week 17</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY MEMBERS -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="grid-2" style="gap:4rem;align-items:center">
+      <div class="reveal">
+        <div class="section-label">Our Members</div>
+        <h2 class="section-title">Players &amp; Parents from <span>Across Africa</span></h2>
+        <p style="margin-bottom:2rem">Our community is growing across Nigeria, Ghana, Kenya, South Africa, and the global diaspora. Here's a snapshot of who's inside.</p>
+        <div class="member-row">
+          <div class="member-avatar">👦</div>
+          <div>
+            <div class="member-name">Chukwuemeka Obi</div>
+            <div class="member-title">Player · Lagos, Nigeria · UTR 4.2</div>
+          </div>
+          <div class="member-badge"><span class="badge badge-gold">Pro</span></div>
+        </div>
+        <div class="member-row">
+          <div class="member-avatar">👩</div>
+          <div>
+            <div class="member-name">Mrs. Folake Adeyemi</div>
+            <div class="member-title">Parent · Lagos, Nigeria</div>
+          </div>
+          <div class="member-badge"><span class="badge badge-navy">Pro</span></div>
+        </div>
+        <div class="member-row">
+          <div class="member-avatar">🧑</div>
+          <div>
+            <div class="member-name">Kofi Mensah</div>
+            <div class="member-title">Player · Accra, Ghana · UTR 5.1</div>
+          </div>
+          <div class="member-badge"><span class="badge badge-gold">Elite</span></div>
+        </div>
+        <div class="member-row">
+          <div class="member-avatar">👨</div>
+          <div>
+            <div class="member-name">Dr. Tunde Bakare</div>
+            <div class="member-title">Parent · London, UK (Diaspora)</div>
+          </div>
+          <div class="member-badge"><span class="badge badge-navy">Pro</span></div>
+        </div>
+        <div class="member-row">
+          <div class="member-avatar">👧</div>
+          <div>
+            <div class="member-name">Chiamaka Eze</div>
+            <div class="member-title">Player · Enugu, Nigeria · UTR 3.5</div>
+          </div>
+          <div class="member-badge"><span class="badge badge-green">Starter</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div style="background:var(--navy);border-radius:var(--radius-lg);padding:3rem;border:1px solid rgba(201,168,76,.2)">
+          <div style="text-align:center;margin-bottom:2rem">
+            <div style="font-size:4rem;margin-bottom:1rem">🌍</div>
+            <h3 style="color:var(--white);margin-bottom:.5rem">Growing Every Week</h3>
+            <p style="color:rgba(255,255,255,.55)">Join 3,000+ players, parents, and coaches already in the community</p>
+          </div>
+          <div class="stats-row" style="grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:2rem">
+            <div class="stat-box" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+              <div class="stat-number" style="color:var(--gold)" data-counter data-target="3000" data-suffix="+">0</div>
+              <div class="stat-label" style="color:rgba(255,255,255,.45)">Community Members</div>
+            </div>
+            <div class="stat-box" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+              <div class="stat-number" style="color:var(--gold)" data-counter data-target="18" data-suffix="">0</div>
+              <div class="stat-label" style="color:rgba(255,255,255,.45)">Countries</div>
+            </div>
+            <div class="stat-box" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+              <div class="stat-number" style="color:var(--gold)" data-counter data-target="52" data-suffix="">0</div>
+              <div class="stat-label" style="color:rgba(255,255,255,.45)">Live Q&As Held</div>
+            </div>
+            <div class="stat-box" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+              <div class="stat-number" style="color:var(--gold)" data-counter data-target="95" data-suffix="%">0%</div>
+              <div class="stat-label" style="color:rgba(255,255,255,.45)">Would Recommend</div>
+            </div>
+          </div>
+          <a href="#pricing" class="btn btn-gold btn-lg" style="width:100%;justify-content:center">Join the Community →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Membership Plans</div>
+      <h2 class="section-title reveal">Choose Your <span>Plan</span></h2>
+      <p class="section-sub reveal">Start free and upgrade anytime. Cancel anytime — no lock-in contracts.</p>
+    </div>
+    <div class="membership-grid">
+      <div class="plan-card reveal">
+        <div class="plan-name" style="color:var(--gray-600)">Starter</div>
+        <div class="plan-price">
+          <div class="plan-amount" style="color:var(--navy)">Free</div>
+          <div class="plan-period">forever</div>
+        </div>
+        <p class="plan-desc">Get started, explore the community, and access selected free resources.</p>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Community Forum Access</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> 2 Free Courses</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Weekly Newsletter</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Blog &amp; Resources</div>
+          <div class="plan-feature" style="opacity:.4"><span class="check-no">✗</span> Live Q&amp;A Sessions</div>
+          <div class="plan-feature" style="opacity:.4"><span class="check-no">✗</span> Mentorship Calls</div>
+          <div class="plan-feature" style="opacity:.4"><span class="check-no">✗</span> Unlimited Courses</div>
+          <div class="plan-feature" style="opacity:.4"><span class="check-no">✗</span> Player Showcase Profile</div>
+          <div class="plan-feature" style="opacity:.4"><span class="check-no">✗</span> Coaching Sessions</div>
+        </div>
+        <button class="btn btn-outline" style="width:100%;justify-content:center" data-action="join" onclick="showToast('🎾','Redirecting to free signup...')">Get Started Free</button>
+      </div>
+
+      <div class="plan-card featured reveal reveal-delay-1">
+        <div class="plan-popular">Most Popular</div>
+        <div class="plan-name">Pro Player</div>
+        <div class="plan-price">
+          <div class="plan-amount">₦9,500</div>
+          <div class="plan-period">/ month</div>
+        </div>
+        <p class="plan-desc" style="color:rgba(255,255,255,.65)">Everything you need to develop seriously as a competitive player.</p>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> All Starter Features</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Weekly Live Q&amp;A</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Monthly Mentorship Call (30 min)</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Unlimited Course Access</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Verified Showcase Profile</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Training Challenges</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Scholarship Alerts</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Progress Dashboard</div>
+          <div class="plan-feature" style="opacity:.4"><span class="check-no">✗</span> Coaching Sessions</div>
+        </div>
+        <button class="btn btn-gold btn-lg" style="width:100%;justify-content:center" data-action="paystack" onclick="showToast('💳','Connecting to Paystack checkout...')">Join Pro — ₦9,500/mo →</button>
+        <p style="color:rgba(255,255,255,.35);font-size:.75rem;text-align:center;margin-top:.75rem">Billed monthly · Cancel anytime</p>
+      </div>
+
+      <div class="plan-card reveal reveal-delay-2">
+        <div class="plan-name" style="color:var(--gray-600)">Elite</div>
+        <div class="plan-price">
+          <div class="plan-amount" style="color:var(--navy)">₦24,000</div>
+          <div class="plan-period">/ month</div>
+        </div>
+        <p class="plan-desc">For serious competitive players. Full coaching support plus everything Pro includes.</p>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> All Pro Features</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> 2 Virtual Coaching Sessions/mo</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> 1 Match Video Analysis/mo</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Custom Monthly Training Plan</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Elite Showcase Badge</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Scholarship Application Support</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Priority Coach Response</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Tournament Pathway Planning</div>
+          <div class="plan-feature"><span class="plan-check check-yes">✓</span> Parent Update Reports</div>
+        </div>
+        <button class="btn btn-navy btn-lg" style="width:100%;justify-content:center" data-action="paystack" onclick="showToast('💳','Connecting to Paystack checkout...')">Join Elite — ₦24,000/mo</button>
+        <p style="font-size:.75rem;color:var(--gray-400);text-align:center;margin-top:.75rem">Billed monthly · Cancel anytime</p>
+      </div>
+    </div>
+
+    <!-- Annual discount callout -->
+    <div style="text-align:center;margin-top:2.5rem;padding:1.5rem;background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.25);border-radius:var(--radius-lg);max-width:600px;margin-inline:auto">
+      <strong style="color:var(--navy);font-family:var(--font-head)">💰 Annual Plans Available — Save 20%</strong>
+      <p style="font-size:.88rem;margin:.4rem 0 0">Pay annually and get 2 months free. Contact us at hello@allondeckhub.com or via WhatsApp to set up annual billing.</p>
+    </div>
+
+    <!-- Payment methods -->
+    <div class="payment-badges reveal" style="margin-top:3rem">
+      <span style="font-size:.82rem;font-weight:700;color:var(--gray-400);font-family:var(--font-head)">ACCEPTED PAYMENT METHODS:</span>
+      <div class="payment-badge">💳 Paystack</div>
+      <div class="payment-badge">🌍 Raenest (International)</div>
+      <div class="payment-badge">🏦 Bank Transfer</div>
+      <div class="payment-badge">📱 USSD</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN COMPARISON -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Full Comparison</div>
+      <h2 class="section-title reveal">What Each Plan <span>Includes</span></h2>
+    </div>
+    <div style="overflow-x:auto" class="reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th class="featured-col">Pro Player</th>
+            <th>Elite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Community Forum</td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Free Courses</td><td>2</td><td class="featured-col">All 24</td><td>All 24</td></tr>
+          <tr><td>Weekly Newsletter</td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Weekly Live Q&amp;A</td><td><span class="check-no">✗</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Monthly Mentorship Call</td><td><span class="check-no">✗</span></td><td class="featured-col">30 min</td><td>60 min</td></tr>
+          <tr><td>Showcase Profile</td><td><span class="check-no">✗</span></td><td class="featured-col">Verified</td><td>Elite Badge</td></tr>
+          <tr><td>Training Challenges</td><td><span class="check-no">✗</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Virtual Coaching Sessions</td><td><span class="check-no">✗</span></td><td class="featured-col"><span class="check-no">✗</span></td><td>2/month</td></tr>
+          <tr><td>Match Video Analysis</td><td><span class="check-no">✗</span></td><td class="featured-col"><span class="check-no">✗</span></td><td>1/month</td></tr>
+          <tr><td>Custom Training Plan</td><td><span class="check-no">✗</span></td><td class="featured-col"><span class="check-no">✗</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Scholarship Support</td><td><span class="check-no">✗</span></td><td class="featured-col">Alerts only</td><td>Full support</td></tr>
+          <tr><td>Monthly Price</td><td><strong>Free</strong></td><td class="featured-col"><strong>₦9,500</strong></td><td><strong>₦24,000</strong></td></tr>
+          <tr>
+            <td></td>
+            <td><a href="#pricing" class="btn btn-outline btn-sm">Get Free</a></td>
+            <td class="featured-col"><a href="#pricing" class="btn btn-gold btn-sm">Join Pro</a></td>
+            <td><a href="#pricing" class="btn btn-navy btn-sm">Join Elite</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-bg">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Member Stories</div>
+      <h2 class="section-title reveal" style="color:var(--white)">What Our <span style="color:var(--gold)">Members Say</span></h2>
+    </div>
+    <div class="grid-3">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The weekly Q&A alone is worth the Pro subscription. I've asked about specific opponents I'm playing and the coach breaks down exactly how to beat them. No other platform does this."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🧑</div>
+          <div>
+            <div class="testimonial-name">Emeka Okonkwo</div>
+            <div class="testimonial-role">Pro Member · Abuja, Nigeria</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"As a parent in the UK, I was worried I couldn't support my son's tennis development back home in Lagos. All ONDECK HUB has made it possible. The coaches know our situation and tailor everything accordingly."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👨</div>
+          <div>
+            <div class="testimonial-name">Dr. Tunde Bakare</div>
+            <div class="testimonial-role">Elite Member · London, UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I joined at Starter level to test it out. Within 2 weeks I upgraded to Pro. The training challenges and the community support are addictive. I'm training harder than ever."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👧</div>
+          <div>
+            <div class="testimonial-name">Amara Diallo</div>
+            <div class="testimonial-role">Pro Member · Abuja, Nigeria</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label">Start Today</div>
+    <h2>Ready to Join <span style="color:var(--gold)">Africa's Best Tennis Community?</span></h2>
+    <p>Start free. Upgrade when you're ready. Cancel anytime. Your development starts now.</p>
+    <div class="cta-btns">
+      <a href="#pricing" class="btn btn-gold btn-lg">Join Pro — ₦9,500/mo</a>
+      <a href="#pricing" class="btn btn-outline-white btn-lg">Start Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex">
+          <div class="nav-logo-icon">🎾</div>
+          <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+        </a>
+        <p>Developing the next generation of African tennis talent through world-class online education, coaching, and community.</p>
+        <div class="footer-social">
+          <div class="social-btn">📸</div><div class="social-btn">🐦</div>
+          <div class="social-btn">▶️</div><div class="social-btn">💬</div>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="courses.html">Online Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Book Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.4);font-size:.85rem">📞 +234 (0) 800 EDGE TEN<br>📧 hello@allondeckhub.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 All ONDECK HUB. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

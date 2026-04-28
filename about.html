@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | All ONDECK HUB</title>
+  <meta name="description" content="The story behind All ONDECK HUB — our mission, our coach, and our commitment to developing African tennis talent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: .85rem; top: .5rem; bottom: .5rem;
+      width: 2px; background: var(--gray-200);
+    }
+    .timeline-item { position: relative; margin-bottom: 2.25rem; }
+    .timeline-dot {
+      position: absolute; left: -2.5rem; top: .3rem;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--gold); border: 3px solid var(--white);
+      box-shadow: 0 0 0 3px var(--gold);
+    }
+    .timeline-year {
+      font-family: var(--font-head); font-size: .75rem; font-weight: 800;
+      color: var(--gold); letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: .25rem;
+    }
+    .timeline-title { font-size: 1rem; margin-bottom: .3rem; }
+    .timeline-desc  { font-size: .88rem; }
+
+    .credential-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 1.75rem; box-shadow: var(--shadow-sm);
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      border: 2px solid transparent; transition: var(--transition);
+    }
+    .credential-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .credential-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      background: linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.05));
+      border-radius: var(--radius); display: flex; align-items: center;
+      justify-content: center; font-size: 1.5rem;
+    }
+    .credential-title { font-size: .95rem; margin-bottom: .2rem; }
+    .credential-body  { font-size: .85rem; }
+
+    .value-card {
+      text-align: center; padding: 2.5rem 2rem;
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm); transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .value-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .value-icon { font-size: 3rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🎾</div>
+        <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li><li><a href="coaching.html">Coaching</a></li>
+        <li><a href="community.html">Community</a></li><li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="courses.html" class="btn btn-outline-white btn-sm">Browse Courses</a>
+        <a href="community.html" class="btn btn-gold btn-sm">Join Now</a>
+      </div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav container">
+    <a href="index.html">Home</a><a href="courses.html">Courses</a>
+    <a href="talent.html">Talent Showcase</a><a href="coaching.html">Coaching</a>
+    <a href="community.html">Community</a><a href="about.html">About</a><a href="blog.html">Blog</a>
+    <a href="community.html" class="btn btn-gold">Join Now →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>About</span></div>
+    <h1>Our <span style="color:var(--gold)">Mission &amp; Story</span></h1>
+    <p>Built by a coach who lived the struggle. Designed for every African player who deserves better access to world-class tennis development.</p>
+  </div>
+</section>
+
+<!-- MISSION STATEMENT -->
+<section class="section">
+  <div class="container" style="max-width:900px;text-align:center">
+    <div class="section-label">Our Mission</div>
+    <h2 class="section-title reveal" style="font-size:clamp(1.6rem,4vw,3rem);line-height:1.2">
+      "To develop the next generation of <span>African tennis talent</span> — regardless of geography, background, or financial means."
+    </h2>
+    <p class="reveal" style="font-size:1.1rem;max-width:700px;margin:1.5rem auto 0">
+      Every day, talented young players across Africa are held back — not because they lack ability, but because they lack access. All ONDECK HUB exists to close that gap.
+    </p>
+  </div>
+</section>
+
+<!-- FOUNDER STORY -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-box" style="font-size:8rem">🎾</div>
+        <div class="about-badge-box">
+          <div class="about-badge-num">10+</div>
+          <div class="about-badge-label">Years Coaching</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="section-label">The Founder</div>
+        <h2 class="section-title">The Story Behind <span>All ONDECK HUB</span></h2>
+        <p style="margin-bottom:1rem">
+          I grew up playing tennis in Nigeria with borrowed rackets and borrowed court time. I had the talent — but I didn't have access to the coaches, resources, or networks that players in Europe and America took for granted.
+        </p>
+        <p style="margin-bottom:1rem">
+          After years of grinding, I earned my ITF Level 1 and US PTR coaching certifications, completed diplomas in Sport Coaching &amp; Leadership and Business Management &amp; Entrepreneurship, and coached at academies in Nigeria and abroad, helping dozens of players reach their potential. But I kept seeing the same problem: talented African players falling through the cracks simply because they couldn't afford quality coaching or didn't have the visibility to attract scouts.
+        </p>
+        <p style="margin-bottom:1.5rem">
+          In 2021, I launched <strong>All ONDECK TENNIS Hub</strong> — and in 2024, it evolved into <strong>All ONDECK HUB</strong>: a fully digital platform designed to bring world-class tennis development to every African player, wherever they are.
+        </p>
+        <p style="font-style:italic;color:var(--gold);font-family:var(--font-head);font-size:1.05rem;margin-bottom:2rem">
+          "If I'd had this platform when I was 14, my career would have looked very different. I'm building it so the next generation doesn't have to wish for what we didn't have."
+        </p>
+        <div style="display:flex;align-items:center;gap:1.25rem">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:3px solid var(--gold)">👨</div>
+          <div>
+            <div style="font-family:var(--font-head);font-weight:800;color:var(--navy);font-size:1.05rem">Coach Kazeem Rasaki</div>
+            <div style="font-size:.85rem;color:var(--gray-400)">Founder &amp; Head Coach · All ONDECK HUB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Credentials &amp; Experience</div>
+      <h2 class="section-title reveal">Qualifications That <span>Back Our Coaching</span></h2>
+      <p class="section-sub reveal">Every coach on All ONDECK HUB is certified, experienced, and deeply committed to African player development.</p>
+    </div>
+    <div class="grid-2" style="gap:1.25rem">
+      <div class="credential-card reveal">
+        <div class="credential-icon">🏅</div>
+        <div>
+          <h4 class="credential-title">ITF Level 1 Certified Coach</h4>
+          <p class="credential-body">International Tennis Federation Level 1 coaching certification. Trained in player development fundamentals, technique instruction, and junior athlete progression pathways.</p>
+        </div>
+      </div>
+      <div class="credential-card reveal reveal-delay-1">
+        <div class="credential-icon">🇺🇸</div>
+        <div>
+          <h4 class="credential-title">US PTR Certified Coach</h4>
+          <p class="credential-body">Professional Tennis Registry (PTR) certified — one of the world's leading tennis coaching certifications, recognising high standards in teaching methodology and player development.</p>
+        </div>
+      </div>
+      <div class="credential-card reveal">
+        <div class="credential-icon">🎓</div>
+        <div>
+          <h4 class="credential-title">Diploma in Business Management &amp; Entrepreneurship</h4>
+          <p class="credential-body">Formal academic background in business management and entrepreneurship, underpinning the professional structure and growth of All ONDECK HUB as a digital platform.</p>
+        </div>
+      </div>
+      <div class="credential-card reveal reveal-delay-1">
+        <div class="credential-icon">📋</div>
+        <div>
+          <h4 class="credential-title">Diploma in Sport Coaching &amp; Leadership</h4>
+          <p class="credential-body">Specialist qualification in sport coaching and leadership, combining coaching science, athlete welfare, programme design, and performance leadership principles.</p>
+        </div>
+      </div>
+      <div class="credential-card reveal">
+        <div class="credential-icon">🚑</div>
+        <div>
+          <h4 class="credential-title">Advanced CPR, AED &amp; First Aid Certified</h4>
+          <p class="credential-body">Advanced CPR, AED, and First Aid certified — ensuring every coaching environment, virtual or on-court, meets the highest standards of athlete safety and emergency preparedness.</p>
+        </div>
+      </div>
+      <div class="credential-card reveal reveal-delay-1">
+        <div class="credential-icon">🏆</div>
+        <div>
+          <h4 class="credential-title">Scholarship Placement Record</h4>
+          <p class="credential-body">Successfully guided students through the US college tennis scholarship process. Experience with NCAA D1, D2, and D3 athletic scholarship applications for African players.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="grid-2" style="gap:4rem;align-items:start">
+      <div class="reveal">
+        <div class="section-label">The Journey</div>
+        <h2 class="section-title">From Court to <span>Digital Platform</span></h2>
+        <p style="margin-bottom:2.5rem">A decade of coaching on African courts led to a simple realisation: the biggest barrier to African tennis talent isn't ability — it's access. Here's how All ONDECK HUB was built.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2013</div>
+            <h4 class="timeline-title">Started Coaching Career</h4>
+            <p class="timeline-desc">Earned ITF Level 1 certification and US PTR certification. Began coaching juniors while pursuing diplomas in Sport Coaching &amp; Leadership and Business Management.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2016</div>
+            <h4 class="timeline-title">PTR Certified &amp; NTF Partner</h4>
+            <p class="timeline-desc">Achieved US PTR certification and joined the Nigeria Tennis Federation as a junior development partner coach.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2019</div>
+            <h4 class="timeline-title">First Scholarship Placement</h4>
+            <p class="timeline-desc">Guided first student to a US college tennis scholarship (NCAA D2). Saw the gap in structured scholarship support for African players.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2021</div>
+            <h4 class="timeline-title">Launched All ONDECK TENNIS Hub</h4>
+            <p class="timeline-desc">Started as a WhatsApp community and YouTube channel. Quickly grew to 500+ members across Nigeria, Ghana, and the UK diaspora.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024</div>
+            <h4 class="timeline-title">All ONDECK HUB Launched</h4>
+            <p class="timeline-desc">Evolved into a full digital platform: online courses, talent showcase, virtual coaching, and paid mentorship community.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2026</div>
+            <h4 class="timeline-title">2,400+ Students. 18 Countries.</h4>
+            <p class="timeline-desc">Now serving players, parents, and coaches across 18 African countries and the global African diaspora.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div style="background:var(--navy);border-radius:var(--radius-lg);padding:2.5rem;border:1px solid rgba(201,168,76,.2);margin-bottom:2rem">
+          <div style="font-size:3rem;margin-bottom:1rem">🎯</div>
+          <h3 style="color:var(--white);margin-bottom:1rem">Our Vision for 2030</h3>
+          <p style="color:rgba(255,255,255,.65);margin-bottom:1.5rem">By 2030, All ONDECK HUB aims to:</p>
+          <div class="about-features">
+            <div class="about-feature"><span class="about-feature-icon">🎾</span> <span style="color:rgba(255,255,255,.8)">Develop 10,000+ players across Africa</span></div>
+            <div class="about-feature"><span class="about-feature-icon">🏫</span> <span style="color:rgba(255,255,255,.8)">Place 100+ players in US college programs</span></div>
+            <div class="about-feature"><span class="about-feature-icon">🌍</span> <span style="color:rgba(255,255,255,.8)">Operate in 40+ African countries</span></div>
+            <div class="about-feature"><span class="about-feature-icon">🏆</span> <span style="color:rgba(255,255,255,.8)">Produce Nigeria's first Top 50 ATP/WTA player</span></div>
+            <div class="about-feature"><span class="about-feature-icon">💰</span> <span style="color:rgba(255,255,255,.8)">Secure $2M+ in scholarships for members</span></div>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.25);border-radius:var(--radius-lg);padding:2rem">
+          <h4 style="margin-bottom:.75rem">Get in Touch</h4>
+          <p style="font-size:.88rem;margin-bottom:1rem">For media enquiries, partnership discussions, or sponsorship opportunities:</p>
+          <p style="font-size:.9rem"><strong>📧</strong> hello@allondeckhub.com</p>
+          <p style="font-size:.9rem;margin-top:.4rem"><strong>📞</strong> +234 (0) 800 EDGE TEN</p>
+          <p style="font-size:.9rem;margin-top:.4rem"><strong>💬</strong> WhatsApp Business: +234 800 000 0000</p>
+          <p style="font-size:.9rem;margin-top:.4rem"><strong>📍</strong> Lagos, Nigeria (HQ) · Virtual worldwide</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-label">Our Values</div>
+      <h2 class="section-title reveal">What We Stand <span>For</span></h2>
+    </div>
+    <div class="grid-4">
+      <div class="value-card reveal">
+        <div class="value-icon">🌍</div>
+        <h4>Africa First</h4>
+        <p style="font-size:.88rem">Everything we build is designed with African realities in mind — bandwidth, budget, and the African tennis journey.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🎯</div>
+        <h4>Excellence</h4>
+        <p style="font-size:.88rem">We hold our coaching, content, and community to international standards. Good enough is never good enough for African talent.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">🤝</div>
+        <h4>Access</h4>
+        <p style="font-size:.88rem">Geography and finances shouldn't limit a player's potential. We price for Africa while delivering world-class quality.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">🔥</div>
+        <h4>Community</h4>
+        <p style="font-size:.88rem">Tennis develops individuals but our community develops champions. We believe in lifting every player around us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section-sm" style="background:var(--navy)">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-box reveal" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+        <div class="stat-number" style="color:var(--gold)" data-counter data-target="2400" data-suffix="+">0</div>
+        <div class="stat-label" style="color:rgba(255,255,255,.45)">Students Developed</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-1" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+        <div class="stat-number" style="color:var(--gold)" data-counter data-target="14" data-suffix="">0</div>
+        <div class="stat-label" style="color:rgba(255,255,255,.45)">Scholarships Placed</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-2" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+        <div class="stat-number" style="color:var(--gold)" data-counter data-target="18" data-suffix="">0</div>
+        <div class="stat-label" style="color:rgba(255,255,255,.45)">Countries Served</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-3" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)">
+        <div class="stat-number" style="color:var(--gold)" data-counter data-target="10" data-suffix="+">0</div>
+        <div class="stat-label" style="color:rgba(255,255,255,.45)">Years Coaching</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label">Join the Mission</div>
+    <h2>Be Part of <span style="color:var(--gold)">Africa's Tennis Revolution</span></h2>
+    <p>Whether you're a player, parent, coach, or sponsor — there's a place for you at All ONDECK HUB.</p>
+    <div class="cta-btns">
+      <a href="community.html" class="btn btn-gold btn-lg">Join the Community</a>
+      <a href="coaching.html" class="btn btn-outline-white btn-lg">Book a Coaching Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex">
+          <div class="nav-logo-icon">🎾</div>
+          <div><div class="nav-logo-text"><span>All ONDECK</span> HUB</div><div class="nav-logo-sub">Tennis Hub</div></div>
+        </a>
+        <p>Developing the next generation of African tennis talent through world-class online education, coaching, and community.</p>
+        <div class="footer-social">
+          <div class="social-btn">📸</div><div class="social-btn">🐦</div>
+          <div class="social-btn">▶️</div><div class="social-btn">💬</div>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="courses.html">Online Courses</a></li>
+        <li><a href="talent.html">Talent Showcase</a></li>
+        <li><a href="coaching.html">Book Coaching</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <p style="color:rgba(255,255,255,.4);font-size:.85rem">📞 +234 (0) 800 EDGE TEN<br>📧 hello@allondeckhub.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 All ONDECK HUB. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
