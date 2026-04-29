@@ -5,8 +5,8 @@
 // ── Navbar scroll effect ──────────────────────────────────
 const navbar = document.querySelector('.navbar');
 if (navbar) {
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  globalThis.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', globalThis.scrollY > 40);
   });
 }
 
@@ -28,7 +28,7 @@ if (hamburger && mobileNav) {
 }
 
 // ── Active nav link ───────────────────────────────────────
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const currentPage = globalThis.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(link => {
   const href = link.getAttribute('href');
   if (href === currentPage || (currentPage === '' && href === 'index.html')) {
@@ -105,7 +105,7 @@ document.querySelectorAll('form').forEach(form => {
       const formId = form.id || form.dataset.type || 'form';
       if (formId.includes('booking')) {
         showToast('📅', 'Booking received! Redirecting to payment...');
-        setTimeout(() => window.open('https://paystack.shop/pay/payonsite', '_blank'), 1500);
+        setTimeout(() => globalThis.open('https://paystack.shop/pay/payonsite', '_blank'), 1500);
       } else if (formId.includes('newsletter') || formId.includes('email')) {
         showToast('📧', 'You\'re subscribed! Welcome to All ONDECK HUB.');
       } else if (formId.includes('profile')) {
@@ -120,15 +120,15 @@ document.querySelectorAll('form').forEach(form => {
 
 // ── Enrollment / CTA buttons ──────────────────────────────
 document.querySelectorAll('[data-action]').forEach(btn => {
-  btn.addEventListener('click', e => {
+  btn.addEventListener('click', _e => {
     const action = btn.dataset.action;
     if (action === 'enroll') {
-      const course = btn.dataset.course || 'this course';
-      window.open('https://paystack.shop/pay/payonsite','_blank');
+      const _course = btn.dataset.course || 'this course';
+      globalThis.open('https://paystack.shop/pay/payonsite','_blank');
     } else if (action === 'join') {
-      window.open('https://paystack.shop/pay/payonsite','_blank');
+      globalThis.open('https://paystack.shop/pay/payonsite','_blank');
     } else if (action === 'paystack') {
-      window.open('https://paystack.shop/pay/payonsite','_blank');
+      globalThis.open('https://paystack.shop/pay/payonsite','_blank');
     }
   });
 });
