@@ -104,7 +104,8 @@ document.querySelectorAll('form').forEach(form => {
       }
       const formId = form.id || form.dataset.type || 'form';
       if (formId.includes('booking')) {
-        showToast('📅', 'Booking request received! We\'ll confirm within 24 hours.');
+        showToast('📅', 'Booking received! Redirecting to payment...');
+        setTimeout(() => window.open('https://paystack.shop/pay/payonsite', '_blank'), 1500);
       } else if (formId.includes('newsletter') || formId.includes('email')) {
         showToast('📧', 'You\'re subscribed! Welcome to All ONDECK HUB.');
       } else if (formId.includes('profile')) {
@@ -123,11 +124,11 @@ document.querySelectorAll('[data-action]').forEach(btn => {
     const action = btn.dataset.action;
     if (action === 'enroll') {
       const course = btn.dataset.course || 'this course';
-      showToast('🎾', `Redirecting to enrollment for ${course}...`);
+      window.open('https://paystack.shop/pay/payonsite','_blank');
     } else if (action === 'join') {
-      showToast('🏆', 'Redirecting to membership checkout...');
+      window.open('https://paystack.shop/pay/payonsite','_blank');
     } else if (action === 'paystack') {
-      showToast('💳', 'Opening secure Paystack payment...');
+      window.open('https://paystack.shop/pay/payonsite','_blank');
     }
   });
 });
